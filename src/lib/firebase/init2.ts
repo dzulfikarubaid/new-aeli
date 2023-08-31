@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+const firebaseConfig2 = {
   apiKey: process.env.FIREBASE_API_KEY2,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN2,
   projectId: process.env.FIREBASE_PROJECT_ID2,
@@ -14,5 +14,5 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app2 = initializeApp(firebaseConfig);
+const app2 = initializeApp(firebaseConfig2, "app2");
 export default app2

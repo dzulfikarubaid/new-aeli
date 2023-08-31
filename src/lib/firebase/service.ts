@@ -1,6 +1,6 @@
 import { getDocs, collection, getDoc, getFirestore, doc, query, where, addDoc } from "firebase/firestore";
-import app2 from './init2'
 import app from './init'
+import app2 from './init2'
 import bcrypt from 'bcrypt'
 import { getDatabase, ref, child, get } from "firebase/database";
 import { useRef, useState, useEffect } from "react";
