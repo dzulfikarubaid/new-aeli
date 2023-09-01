@@ -87,12 +87,12 @@ function Articles() {
     <div className='flex flex-row justify-between'>
       <div></div>
     </div>
-    <div className='flex flex-col w-[600px] gap-10'>
+    <div className='flex flex-col w-[800px] gap-10'>
       {loading ? (
         <h1>Memuat data...</h1>
       ) : filteredData.length > 0 ? (
         filteredData.map((item: any, index) => (
-          <div key={item.id} className='flex flex-col gap-4 p-4'>
+          <div key={item.id} className='flex flex-col w-[600px]  gap-4 p-4'>
             <div className='flex flex-row gap-1 h-6'>
               <Link className='hover:border-b hover:border-black w-fit' href={`/profile/${item.name}`}>
                 {item.name}
@@ -107,8 +107,8 @@ function Articles() {
                   className='text-md font-light text-black'
                   dangerouslySetInnerHTML={{
                     __html:
-                      item.content.length > 120
-                        ? item.content.substring(0, 120).trim().replace(/\s+/g, ' ') + '...'
+                      item.content.length > 100
+                        ? item.content.substring(0, 100).trim().replace(/\s+/g, ' ') + '...'
                         : item.content
                   }}
                 />
