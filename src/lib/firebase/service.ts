@@ -104,6 +104,52 @@ export async function addArticles(userData:{
         }
     )
 }
+export async function addNews(userData:{
+    title:string;
+    content:string;
+    name:string;
+    create_at:string;
+    image:string;
+}, callback:Function){
+    const q = query(collection(firestore, "news"))
+    const snapshot = await getDocs(q);
+    const data = snapshot.docs.map((doc) => (
+        {
+            id: doc.id,
+            ...doc.data()
+        }
+    ))
+    if(!userData.title){
+        callback({
+            status:false,
+            message:"Masukkan Judul"
+        })
+        return
+    }
+    if(!userData.content){
+        callback({
+            status:false,
+            message:"Masukkan Konten"
+        })
+        return
+    }
+    
+    await addDoc(collection(firestore, "news"),userData)
+    .then(res => {
+        callback({
+            status:true,
+            message:"Berhasil menambahkan artikel"
+        })
+    })
+    .catch(
+        (error) => {
+            callback({
+                status:false,
+                message:"Gagal menambahkan artikel"
+            })
+        }
+    )
+}
 export async function signUp(userData:{
     email:string;
     name:string;

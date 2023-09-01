@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Dpp from '../../dpp'
 import Link from 'next/link'
 
+
 const pengurus = [
     {
         nama: "NURFAHMI",
@@ -101,8 +102,13 @@ function dpp() {
     }
     return (
       <Content>
+        
         <div className=''>
-        <h1 className='font-bold text-center text-xl'>Daftar Dewan Pengurus Pusat</h1>
+        <div className='flex flex-col justify-center items-center'>
+            <h1 className='font-bold text-center text-xl'>Struktur Organisasi Dewan Pimpinan Pusat</h1>
+        <Image className='my-10' alt='' width={800} height={400} src={'/OrgChart.png'}></Image>
+        </div>
+        <h1 className='font-bold text-center text-xl'>Daftar Dewan Pimpinan Pusat</h1>
         <div className='flex flex-wrap w-full gap-10 justify-center py-10'>
         {pengurus.map((item, index) => (
           <Card {...item} key={index}></Card>

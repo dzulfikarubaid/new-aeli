@@ -38,16 +38,14 @@ export default function Write() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { data: session, status } = useSession();
-  const [selectedImage, setSelectedImage]:any = useState(null);
+  const [selectedImage, setSelectedImage]:any = useState('/logo-aeli.png');
   const [isOpen, setIsOpen] = useState(false);
   
   async function save(e:any){
     e.preventDefault()
     setLoading(true)
     console.log(value);
-    if (!selectedImage){
-      setSelectedImage('logo-aeli-putih.png')
-    }
+ 
     if (editorRef.current) {
       const content = editorRef.current.getContent();
     
@@ -124,7 +122,6 @@ export default function Write() {
               <button onClick={() => setSelectedImage(null)}><FaTimes size={20}></FaTimes></button>
             </div>
             <img
-              alt="not found"
               width={"250px"}
               src={selectedImage}
             />
@@ -132,6 +129,19 @@ export default function Write() {
           
           </div>
         )}
+        {/* {
+          !selectedImage && (
+            <div className='p-4 bg-gray-50 flex flex-col justify-center items-center' >
+            <div className='flex flex-row-reverse w-full'>
+              <button onClick={() => setSelectedImage(null)}><FaTimes size={20}></FaTimes></button>
+            </div>
+            <img
+              width={"250px"}
+              src={selectedImage}
+            />
+            </div>
+          )
+        } */}
         <div className='flex flex-col gap-4'>
           <label htmlFor="title">Judul Artikel</label>
         <input type="text" value={value} onChange={e => setValue(e.target.value)} placeholder='Masukkan judul artikel anda' name='title' id='title' className=' focus:border-black rounded-lg  border focus:outline-none p-2' />
