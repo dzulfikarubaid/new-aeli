@@ -2,9 +2,35 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Navbar from "./navbar";
+import { FaShare } from "react-icons/fa";
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import Link from "next/link";
-
+import {
+  EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+  WorkplaceShareButton
+} from "react-share";
+import { FaHandsClapping, FaWhatsapp, FaFacebook } from "react-icons/fa6";
+import {PiHandsClapping} from "react-icons/pi";
+import {RiShareForward2Line, RiShareForwardBoxFill} from "react-icons/ri";
 interface DataItem {
   id: string,
   name: string,
@@ -21,7 +47,7 @@ function DetailArticles() {
   const { query } = useRouter();
   const router = useRouter();
   const articleTitle = selectedArticle ? selectedArticle.title : "Artikel tidak ditemukan";
-
+  const [share, setShare] = useState(false);
   useEffect(() => {
     axios.get('/api/getarticles')
       .then((res) => {
@@ -31,10 +57,6 @@ function DetailArticles() {
         const selected: DataItem | undefined = articles.find(item => item.id === query.id);
         if (selected) {
           setSelectedArticle(selected);
-        }
-        else{
-          router.push('/halaman-tidak-ditemukan')
-          return null
         }
       })
       .catch((err) => {
@@ -61,6 +83,7 @@ function DetailArticles() {
     setFilteredData(filteredResults);
   }, [router.query.search, value]);
 
+  const [count, setCount] = useState(0);
   const formatTimeLeft = (createdAt: string) => {
     const now = new Date();
     const createdAtDate = new Date(createdAt);
@@ -80,7 +103,15 @@ function DetailArticles() {
       return "pada " + createdAtDate.toLocaleDateString('id-ID', options);
     }
   };
-
+  const updateCounter = (counterValue:any) => {
+    axios.post('/api/updateCounter', { counter: counterValue })
+      .then((response) => {
+        // Berhasil mengirim data ke server
+      })
+      .catch((error) => {
+        // Terjadi kesalahan dalam pengiriman data
+      });
+  };
   return (
     <div>
       <Navbar
@@ -95,6 +126,34 @@ function DetailArticles() {
             <div>
               <Link className='hover:border-b hover:border-black' href={`/profile/${selectedArticle.name}`}>{selectedArticle.name}</Link>
               <h1>Diposting {formatTimeLeft(selectedArticle.create_at)}</h1>
+              
+              <div className="flex flex-row justify-between items-center mt-10 p-3 border-t border-b">
+                <div className="flex flex-row gap-2">
+                  <button onClick={()=>setCount(count + 1)}><PiHandsClapping size={22}></PiHandsClapping></button>
+                  <h1>{count}</h1>
+                </div>
+                {
+                share ? 
+                <div className="flex flex-row gap-6">
+              <WhatsappShareButton title={`Baca artikel dari ${selectedArticle.name} dengan judul ${selectedArticle.title}`} separator=" " url={`https://aeli.vercel.app/articles/${selectedArticle.id}`}>
+                <FaWhatsapp size={22}></FaWhatsapp>
+              </WhatsappShareButton>
+              <FacebookShareButton
+                url={`https://aeli.vercel.app/articles/${selectedArticle.id}`}
+                quote={"Baca artikel dari Aeli"}
+                hashtag={"#aeli"}
+              >
+              <FaFacebook size={22}/>
+              </FacebookShareButton>
+              </div>
+              :
+              <button onClick={() => setShare(!share)}>
+                  <RiShareForwardBoxFill size={22}></RiShareForwardBoxFill>
+                </button>
+              }
+                
+              </div>
+              
             </div>
             <div dangerouslySetInnerHTML={{ __html: selectedArticle.content }} />
           </div>
