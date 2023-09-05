@@ -97,7 +97,7 @@ const DetailDPD = () => {
               </div>
               </div>
               <div className="mt-10 flex flex-col justify-center items-center">
-              <Link target="_blank" className="flex items-center justify-center flex-row gap-4 w-fit text-center p-6 py-2 rounded-xl bg-black text-white" href={`https://api.whatsapp.com/send?phone=62${item.contact.slice(1)}`}>
+              <Link target="_blank" className="flex items-center justify-center flex-row gap-4 w-fit text-center p-6 py-2 rounded-xl bg-black text-white" href={`https://api.whatsapp.com/send?phone=62${parseFloat(item.contact.split(',')[0])}`}>
                 <h1>HUBUNGI DPD {item.nama.toUpperCase()}</h1>
                 <FaWhatsapp size={30}></FaWhatsapp>
               </Link>

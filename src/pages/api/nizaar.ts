@@ -21,6 +21,6 @@ export default async function handler(
     res.status(200).end();
     return;
   }
-  const data = await getData('test/double')
+  const data = await getData('test/int')
   res.status(200).json({ data, status: true, statusCode: 200 })
 }
