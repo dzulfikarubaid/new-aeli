@@ -90,7 +90,7 @@ function Dropdown({ name, options, white, fix }: DropdownProps) {
       options: [
         { label: 'Asosiasi Experiential Learning Indonesia', path: '/aeli' },
         { label: 'Experiential Learning', path: '/el' },
-        { label: 'Dewan Pimpinan Pusat', path: '/dpp' },
+        { label: 'Dewan Pengurus Pusat', path: '/dpp' },
 
       ],
     },

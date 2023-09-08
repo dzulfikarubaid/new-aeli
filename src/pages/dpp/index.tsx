@@ -89,7 +89,7 @@ function dpp() {
 
         const namaUrl = nama.toLowerCase().replace(/\s+/g, '-');
       return(
-        <Link href={`/dpp/${namaUrl}`} key={key}>
+        <Link href={`/dpp/${namaUrl}`} >
         <div  className=' p-4 text-blue-500 flex flex-col gap-4 rounded-xl w-[250px] '>
           <Image width={200} height={200} src={foto} alt="" />
           <div className=''>
@@ -105,10 +105,10 @@ function dpp() {
         
         <div className=''>
         <div className='flex flex-col justify-center items-center'>
-            <h1 className='font-bold text-center text-xl'>Struktur Organisasi Dewan Pimpinan Pusat</h1>
+            <h1 className='font-bold text-center text-xl'>Struktur Organisasi Dewan Pengurus Pusat</h1>
         <Image className='my-10' alt='' width={800} height={400} src={'/OrgChart.png'}></Image>
         </div>
-        <h1 className='font-bold text-center text-xl'>Daftar Dewan Pimpinan Pusat</h1>
+        <h1 className='font-bold text-center text-xl'>Daftar Dewan Pengurus Pusat</h1>
         <div className='flex flex-wrap w-full gap-10 justify-center py-10'>
         {pengurus.map((item, index) => (
           <Card {...item} key={index}></Card>

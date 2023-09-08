@@ -70,6 +70,17 @@ function Articles() {
     router.push(url);
     setLoading(false)
   };
+  const nameCount:any = {};
+
+// Menghitung jumlah item dengan nama yang sama
+filteredData.forEach((item) => {
+  const { name } = item;
+  if (nameCount[name]) {
+    nameCount[name] += 1;
+  } else {
+    nameCount[name] = 1;
+  }
+});
 
   return (
     <div>
@@ -80,17 +91,13 @@ function Articles() {
         handleSearchSubmit={handleSearchSubmit}
       />
 
-<div className='flex flex-row px-24 py-10 gap-10'>
-  <div className='flex flex-wrap w-1/2 gap-6'>
-    <div className='flex flex-row justify-between'>
-      <div></div>
-    </div>
-    <div className='flex flex-col w-[600px] gap-10'>
+<div className='flex flex-row px-24 py-10 gap-10 justify-center'>
+    <section className='flex flex-col w-[800px] gap-10'>
       {loading ? (
         <h1>Memuat data...</h1>
       ) : filteredData.length > 0 ? (
         filteredData.map((item: any, index) => (
-          <div key={item.id} className='flex flex-col gap-4 p-4'>
+          <div key={item.id} className='flex flex-col w-[600px] gap-4 p-4'>
             <div className='flex flex-row gap-1 h-6'>
               <Link className='hover:border-b hover:border-black w-fit' href={`/profile/${item.name}`}>
                 {item.name}
@@ -118,8 +125,17 @@ function Articles() {
       ) : (
         <div>Berita tidak ditemukan</div>
       )}
+    </section>
+    <section>
+    <div className='w-[350px] flex flex-col gap-3'>
+      <h1 className='font-bold'>Peringkat Penulis Terbanyak</h1>
+      {Object.keys(nameCount).sort((a, b) => nameCount[b] - nameCount[a]).map((name, index) => (
+        <div key={index}>
+          {index+1}. {name}: {nameCount[name]} berita
+        </div>
+      ))}
     </div>
-  </div>
+  </section>
 </div>
 
     </div>
