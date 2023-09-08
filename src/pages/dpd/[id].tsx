@@ -92,7 +92,7 @@ const DetailDPD = () => {
               
               </div>
               <div className="flex flex-col gap-20">
-              <Calendar></Calendar>
+
               
               </div>
               </div>
