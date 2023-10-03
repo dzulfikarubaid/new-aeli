@@ -23,8 +23,8 @@ export default function Home() {
       <title>Home - AELI</title>
     </Head>
     <Navbar></Navbar>
-    <div className='flex flex-col gap-10 pt-20'>
-    <div className='w-full h-fit bg-blue-500  px-10 py-20 text-white'>
+    <div className='flex flex-col max-w-full'>
+    <div className='max-w-full'>
       <MySwiper></MySwiper>
       
       

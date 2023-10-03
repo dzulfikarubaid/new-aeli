@@ -8,7 +8,7 @@ const MySwiper = () => {
   return (
     <Swiper
   
-      className='h-fit text-[50px] text-white py-10 '
+      className='h-full w-full'
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade]}
       spaceBetween={50}
       slidesPerView={1}
@@ -24,12 +24,12 @@ const MySwiper = () => {
       onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide>
-        <div className='hover:underline'>
-          <h1 >Experience is not necessarily Experiential.</h1>
-        </div>
+      
+          <img className='max-w-full min-w-full' src="image 1.png" alt="" />
+        
       </SwiperSlide>
       <SwiperSlide>
-        <div className=""><h1 className='hover:underline'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores voluptates aliquid dolore laboriosam amet mollitia ea quis ad corrupti perspiciatis odio quasi doloremque ipsa, inventore quam necessitatibus facere. Quis, esse?</h1></div>
+       <img  className='max-w-full min-w-full' src="image 1.png" alt="" />
       </SwiperSlide>
       <div className="swiper-pagination"></div>
     </Swiper>
