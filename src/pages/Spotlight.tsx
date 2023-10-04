@@ -5,19 +5,20 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-function ChildSpotlight({ img, judul, deskripsi }: any) {
-  return (
-    <div className='flex flex-row gap-10 justify-center'>
-      <div className='flex flex-col gap-4 w-[400px]'>
-        <h1 className='text-4xl font-extrabold'>{judul}</h1>
-        <h1>{deskripsi}</h1>
-      </div>
-      <img className='w-[720px] h-auto' src={img} alt='' />
-    </div>
-  );
-}
+
 
 const Spotlight = ({ slides }: any) => {
+    function ChildSpotlight({ img, judul, deskripsi }: any) {
+        return (
+          <div className='flex flex-row gap-10 justify-center'>
+            <div className='flex flex-col gap-4 w-[400px]'>
+              <h1 className='text-4xl font-extrabold'>{judul}</h1>
+              <h1>{deskripsi}</h1>
+            </div>
+            <img className='w-[720px] h-auto' src={img} alt='' />
+          </div>
+        );
+      }
   return (
     <div className='flex flex-col items-center py-10 mt-10 bg-[#FED24D]'>
       <h1 className='mb-10 text-3xl font-bold'>Spotlight</h1>
