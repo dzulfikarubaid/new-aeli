@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Dropdown';
 import { button } from '@material-tailwind/react';
+import NavbarWhite from '../components/Navbar';
 
 function MiniNavbar(props:any) {
     const {id} = props
@@ -28,7 +29,7 @@ function MiniNavbar(props:any) {
     }
   return (
     <div>
-      <Navbar className='relative'></Navbar>
+      <Navbar></Navbar>
       <div className='flex flex-col gap-10 justify-center '>
         <div className='bg-white top-0 w-full shadow-lg self-center'>
         <div id={id} className='w-full px-4 py-4 flex flex-row gap-10 justify-center'>

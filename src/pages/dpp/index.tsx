@@ -3,6 +3,7 @@ import Content from '../Content'
 import Image from 'next/image'
 import Dpp from '../../dpp'
 import Link from 'next/link'
+import NoNavbar from '../NoNavbar'
 
 
 const pengurus = [
@@ -101,7 +102,7 @@ function dpp() {
       )
     }
     return (
-      <Content>
+      <NoNavbar>
         
         <div className=''>
         <div className='flex flex-col justify-center items-center'>
@@ -115,7 +116,7 @@ function dpp() {
         ))}
         </div>
         </div>
-      </Content>
+      </NoNavbar>
     )
   }
   

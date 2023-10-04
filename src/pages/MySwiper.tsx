@@ -25,7 +25,7 @@ const MySwiper = () => {
     >
       <SwiperSlide>
           <div className=''>
-          <img className='max-w-full min-w-full' src="foto-landing.png" alt="" />
+          <img className='max-w-full min-w-full' src="image 1.png" alt="" />
           <h1 className='absolute text-4xl font-extrabold w-[400px] text-white left-10 top-1/2'>Bangun Pondasi Dengan Peningkatan Kapasitas Terbaik</h1>
         
           </div>

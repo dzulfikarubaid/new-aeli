@@ -9,11 +9,7 @@ import {SessionProvider} from 'next-auth/react';
 export default function App({ Component, pageProps:{ session, ...pageProps} }: AppProps) {
   return (
     <SessionProvider session={session}>
-      
-      <div style={{ flex: 1, paddingBottom: '20px' }}>
         <Component {...pageProps} />
-      </div>
-      
     </SessionProvider>
   );
 }

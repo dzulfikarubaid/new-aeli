@@ -1,8 +1,9 @@
 import React from 'react'
 import Content from '../Content'
+import NoNavbar from '../NoNavbar'
 function Activities() {
   return (
-    <Content className='flex w-full justify-center items-center'>
+    <NoNavbar className='flex w-full justify-center items-center'>
         <div className='flex flex-col gap-4 w-[800px] justify-center items-center'>
         <h1>AELI telah hadir selama hampir dua dekade sebagai pionir kegiatan peningkatan kompetensi sumber daya manusia Indonesia.</h1>
         <img className='w-[700px]' src="https://asset-2.tstatic.net/tribunnews/foto/bank/images/pengurus-pusat-aeli-2019-2022.jpg" alt="" />
@@ -24,7 +25,7 @@ function Activities() {
         <h1 className='font-bold text-xl'>AELI. BERSATU. BERJAYA.</h1>
     </div>
 
-    </Content>
+    </NoNavbar>
     
   )
 }

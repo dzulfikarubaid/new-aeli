@@ -20,7 +20,7 @@ const Spotlight = ({ slides }: any) => {
 
   return (
     <div className='flex flex-col items-center py-10 mt-10 bg-[#FED24D]'>
-      <h1 className='mb-10 text-3xl font-bold'>Spotlight</h1>
+      <h1 className='mb-10 text-xl'>Spotlight</h1>
       {slides && slides.length > 0 ? ( // Check if slides is defined and not an empty array
         <Swiper
           pagination={{ clickable: true }}  // Enable clickable pagination

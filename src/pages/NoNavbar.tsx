@@ -1,10 +1,15 @@
 import React from 'react'
+import NavbarWhite from './components/Navbar'
 
 function NoNavbar(props:any) {
     const {children, className} = props
 
   return (
-    <div className={`p-10 ${className}`}>{children}</div>
+    <>
+    <NavbarWhite></NavbarWhite>
+    <div className={`p-10 mt-20 ${className}`}>{children}</div>
+    </>
+    
   )
 }
 

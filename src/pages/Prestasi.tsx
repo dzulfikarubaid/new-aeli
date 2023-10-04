@@ -4,7 +4,7 @@ const Card = (props:any) =>{
     const {color, img, h1, p} = props
     return(
         
-            <div className={`py-32 px-10 bg-[${color}] w-[400px] rounded-xl h-[400px] relative`}>
+            <div style={{background:color}} className={`py-32 px-10 w-[400px] rounded-xl h-[400px] relative`}>
                 <img className='absolute -top-40 left-0'  src={img} alt="" />
                 <h1 className='text-xl font-bold mb-4'>{h1}</h1>
                 <p className='text-justify'>{p}</p>

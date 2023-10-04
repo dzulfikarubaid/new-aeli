@@ -5,6 +5,7 @@ import MiniNavbar from './navbar'
 import Headroom from 'react-headroom'
 import Link from 'next/link'
 import Image from 'next/image'
+import NavbarWhite from '../components/Navbar'
 
 function Index() {
     function Title(props:any) {
@@ -32,12 +33,7 @@ function Index() {
   return (
     
     <div id='top'>
-      <Headroom downTolerance={1}>
-      <MiniNavbar id='navbar'>
-      </MiniNavbar>
-      </Headroom>
       <NoNavbar>
-      
       <Title id='aeli'>Asosiasi Experiential Learning Indonesia</Title>
         <p className='pt-4 px-10'>
         Asosiasi Experiential Learning Indonesia (AELI) adalah asosiasi yang hadir sebagai wadah bagi penyedia layanan yang menjalankan program peningkatan kapasitas Sumber Daya Manusia (SDM) dengan pembelajaran berbasis pengalaman/Experiential Learning.

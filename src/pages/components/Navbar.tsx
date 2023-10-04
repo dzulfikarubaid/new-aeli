@@ -12,7 +12,7 @@ interface DropdownItemProps {
   }
 function DropdownItem({ path, label, white}: DropdownItemProps) {
 return (
-    <li className={`py-2 ${!white ? ' text-white' : ' text-black'}`}>
+    <li className={`py-2 ${!white ? ' text-black' : ' text-black'}`}>
     <Link href={path} className={`hover:border-b-4 ${!white ? ' hover:border-blue-500' : ' hover:border-white'}`}>{label}</Link>
     </li>
 );
@@ -46,7 +46,7 @@ function Dropdown({ name, options, white, fix }: DropdownProps) {
         onMouseEnter={handleMenuEnter}
         onMouseLeave={handleMenuLeave}
         className={`py-8 focus:outline-none flex flex-row items-center ${
-          white ? 'text-black' : 'text-white'
+          white ? 'text-black' : 'text-black'
         }`}
       >
         {name}
@@ -58,7 +58,7 @@ function Dropdown({ name, options, white, fix }: DropdownProps) {
       {isOpen && (
         <div
           className={`w-full absolute flex flex-col ${
-            !white ? 'bg-white/30' : 'bg-gray-50'
+            !white ? 'bg-white' : 'bg-gray-50'
           } left-0 py-4 shadow-xl`}
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={handleMenuLeave}
@@ -98,13 +98,13 @@ function Dropdown({ name, options, white, fix }: DropdownProps) {
     
   ];
 
-function Navbar(props:any){
+function NavbarWhite(props:any){
   const [fix, setFix] = useState(false);
   const [white, setWhite] = useState(false);
   const {className} = props
   const {data}:any = useSession()
   function setWhited(){
-    if(window.scrollY > 1600){
+    if(window.scrollY > 560){
       setWhite(true);
     }else{
       setWhite(false);
@@ -112,7 +112,7 @@ function Navbar(props:any){
   }
   function setFixed(){
    
-      if(window.scrollY > 1600){
+      if(window.scrollY > 560){
         setFix(true);
       }else{
         setFix(false);
@@ -132,16 +132,16 @@ function Navbar(props:any){
     return(
       <div className=''>
         
-        <div className={`fixed ${className} z-[9999] top-0 flex justify-between flex-row w-full text-black  px-10  items-center ${white ? 'bg-white' : ''}
+        <div className={`fixed ${className} z-[9999] top-0 flex justify-between flex-row w-full text-black  px-10  items-center bg-white
         `} >
             <Link href="/" className=' flex flex-row gap-[calc(1/4*50px)] items-center justify-center'>
-                {!white ? <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli-putih.png" alt="" /> : <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" />}
+                {!white ? <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" /> : <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" />}
                 <div>
-                  <h1 className={`text-[calc(1/4*50px)] ${!white ? 'text-white' : 'text-black'}`}>Asosiasi<br/>Experiential Learning<br/> Indonesia</h1>
+                  <h1 className={`text-[calc(1/4*50px)] ${!white ? 'text-black' : 'text-black'}`}>Asosiasi<br/>Experiential Learning<br/> Indonesia</h1>
 
                 </div>
             </Link>
-            <div className={`flex flex-row gap-8 items-center ${!fix ? 'text-white' : 'text-black'}`}>
+            <div className={`flex flex-row gap-8 items-center ${!fix ? 'text-black' : 'text-black'}`}>
             {dropdowns.map((dropdown, index) => (
               <Dropdown key={index} name={dropdown.name} options={dropdown.options} white={white} fix={fix}/>
             ))}
@@ -152,16 +152,16 @@ function Navbar(props:any){
               <Link href="/news">News</Link>
             </div>
             
-            {/* <li><Link href="/signin" className={` py-2 px-3 ${!white ? 'text-black bg-white hover:bg-gray-100' : 'text-white bg-blue-500 hover:bg-blue-600'}`}>Sign In</Link></li> */}
+            {/* <li><Link href="/signin" className={` py-2 px-3 ${!white ? 'text-black bg-white hover:bg-gray-100' : 'text-black bg-blue-500 hover:bg-blue-600'}`}>Sign In</Link></li> */}
             <div>
             {
               data ?
               <div className='flex flex-row gap-4 items-center'>
-                <Link className={`${white ? 'text-black' : 'text-white'}`} href={`/profile/${data.user.name}`}>{data.user.name}</Link>
-                <button className={` py-2 rounded-full border-2 px-4 ${!white ? 'text-white border-white' : 'text-black border-black'}`}  onClick={handleSignout}>Sign Out</button>
+                <Link className={`${white ? 'text-black' : 'text-black'}`} href={`/profile/${data.user.name}`}>{data.user.name}</Link>
+                <button className={` py-2 px-3 ${!white ? 'text-black bg-white hover:bg-gray-100' : ''}`} onClick={handleSignout}>Sign Out</button>
               </div>
               :
-              <button className={` py-2 rounded-full border-2 px-4 ${!white ? 'text-white border-white' : 'text-black border-black'}`} onClick={()=>signIn()}>Sign In</button>
+              <button className={` py-2 px-3 ${!white ? 'text-black bg-white hover:bg-gray-100' : ''}`} onClick={()=>signIn()}>Sign In</button>
             }
             </div>
         </div>
@@ -171,4 +171,4 @@ function Navbar(props:any){
         
     )
 }
-export default Navbar;
+export default NavbarWhite;
