@@ -15,6 +15,13 @@ import Map from '../components/Map';
 import dynamic from 'next/dynamic';
 import Navbar from './components/Dropdown';
 import Footer from './Footer';
+import Prestasi from './Prestasi';
+import Spotlight from './Spotlight';
+const slides = [
+  { img: 'foto-landing.png', judul: 'Slide 1', deskripsi: 'Lorem ipsum 1' },
+  { img: 'image 1.png', judul: 'Slide 2', deskripsi: 'Lorem ipsum 2' },
+  // Add more slides as needed
+];
 export default function Home() {
   const [dpd, setDPD] = useState(false)
   return (
@@ -29,6 +36,7 @@ export default function Home() {
       
       
     </div>
+    <Prestasi></Prestasi>
     <div className='w-full h-fit bg-white px-10 text-blue-500 text-center'>
     <h1 className='font-bold text-[30px] mb-10'>AELI Dalam Angka</h1>
       <h1 className='font-semibold text-black text-xl'>Jumlah DPD AELI</h1>
@@ -56,6 +64,7 @@ export default function Home() {
     }
     </div>
     </div>
+    <Spotlight slides={slides}></Spotlight>
     <Footer></Footer>
    
     

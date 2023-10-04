@@ -24,14 +24,17 @@ const MySwiper = () => {
       onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide>
-      
-          <img className='max-w-full min-w-full' src="image 1.png" alt="" />
+          <div className=''>
+          <img className='max-w-full min-w-full' src="foto-landing.png" alt="" />
+          <h1 className='absolute text-4xl font-extrabold w-[400px] text-white left-10 top-1/2'>Bangun Pondasi Dengan Peningkatan Kapasitas Terbaik</h1>
         
+          </div>
+          
       </SwiperSlide>
-      <SwiperSlide>
+      {/* <SwiperSlide>
        <img  className='max-w-full min-w-full' src="image 1.png" alt="" />
       </SwiperSlide>
-      <div className="swiper-pagination"></div>
+      <div className="swiper-pagination"></div> */}
     </Swiper>
   );
 };
