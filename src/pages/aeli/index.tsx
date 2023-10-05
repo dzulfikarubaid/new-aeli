@@ -74,7 +74,7 @@ function Index() {
           <img className='w-[300px] h-auto' src="/avatar-blue.png" alt="" />
           <div className='text-left '>
             <h1 className='text-3xl mb-6 font-bold'>Nama Ketua</h1>
-            <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente culpa magnam possimus labore voluptas quos at alias nulla nam, adipisci dignissimos doloremque esse nostrum, aspernatur harum vel. Aliquid, facere debitis."</p>
+            <p>&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente culpa magnam possimus labore voluptas quos at alias nulla nam, adipisci dignissimos doloremque esse nostrum, aspernatur harum vel. Aliquid, facere debitis.&quot;</p>
           </div>
         </div>
         {/* <Title id='aeli'>Asosiasi Experiential Learning Indonesia</Title>
