@@ -75,10 +75,10 @@ export default function Home() {
     <Spotlight slides={slides}></Spotlight>
     <div className='flex flex-col justify-center items-center text-center py-20'>
     <h1>Social Media Update</h1>
-    <div style={{ display: 'flex', justifyContent: 'center' }} className='gap-10 mt-10'>
-  <InstagramEmbed url="https://www.instagram.com/p/Cx4gcr2PE1t/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} />
-   <InstagramEmbed url="https://www.instagram.com/reel/CxxAc73rDeh/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} />
-    <InstagramEmbed url="https://www.instagram.com/reel/Cxrywt-LLy-/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} />
+    <div style={{ display: 'flex', justifyContent: 'center' }} className='gap-10 mt-10 h-[400px]'>
+  <InstagramEmbed url="https://www.instagram.com/p/Cx4gcr2PE1t/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} height={400}/>
+   <InstagramEmbed url="https://www.instagram.com/reel/CxxAc73rDeh/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} height={400} />
+    <InstagramEmbed url="https://www.instagram.com/reel/Cxrywt-LLy-/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} height={400}/>
 </div>
     
     </div>
