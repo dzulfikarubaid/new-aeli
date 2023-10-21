@@ -133,7 +133,7 @@ function NavbarWhite(props:any){
         
         <div className={`fixed ${className} z-[9999] top-0 flex justify-between flex-row w-full text-black  px-10  items-center bg-white
         `} >
-            <a href="/" className=' flex flex-row gap-[calc(1/4*50px)] items-center justify-center'>
+            <a href="" className=' flex flex-row gap-[calc(1/4*50px)] items-center justify-center'>
                 {!white ? <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" /> : <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" />}
                 <div>
                   <h1 className={`text-[calc(1/4*50px)] ${!white ? 'text-black' : 'text-black'}`}>Asosiasi<br/>Experiential Learning<br/> Indonesia</h1>
@@ -144,11 +144,11 @@ function NavbarWhite(props:any){
             {dropdowns.map((dropdown, index) => (
               <Dropdown key={index} name={dropdown.name} options={dropdown.options} white={white} fix={fix}/>
             ))}
-              <a href={'/activities'}>Activities</a>
-              <a href={'/dpd'}>DPD</a>
-              <a href={'/members'}>Members</a>
-              <a href="/articles">Articles</a>
-              <a href="/news">News</a>
+              <a href={'activities'}>Activities</a>
+              <a href={'dpd'}>DPD</a>
+              <a href={'members'}>Members</a>
+              <a href="articles">Articles</a>
+              <a href="news">News</a>
             </div>
             
             {/* <li><a href="/signin" className={` py-2 px-3 ${!white ? 'text-black bg-white hover:bg-gray-100' : 'text-black bg-blue-500 hover:bg-blue-600'}`}>Sign In</a></li> */}
