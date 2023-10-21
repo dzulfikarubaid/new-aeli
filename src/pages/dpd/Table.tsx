@@ -1,7 +1,7 @@
 
 import { Card, Typography } from "@material-tailwind/react";
 import axios from "axios";
-import Link from "next/link";
+
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
@@ -185,10 +185,10 @@ export default function Table() {
               const classes = isLast ? "py-4" : "py-4 pr-2 border-b border-blue-gray-50";
               const url = 'dpd/indonesia-'+nama.toLowerCase().replace(/\s+/g, "")
               return (
-                <tr key={url}>
+                <tr key={index}>
                   <td className={classes}>
                     <Typography variant="small" color="blue-gray" className="font-normal">
-                      <Link href={url} className="text-blue-500">{nama}</Link>
+                      <a href={url} className="text-blue-500">{nama}</a>
                     </Typography>
                   </td>
                   

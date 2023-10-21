@@ -10,7 +10,7 @@ function Footer(props: any) {
         <div className='flex flex-row justify-between '>
           <div className='flex flex-col gap-6'>
             <div className='flex flex-row gap-4 items-center'>
-              <img src="logo-aeli2.png" className='w-[50px] h-[50px]' alt="" />
+              <img src="/logo-aeli2.png" className='w-[50px] h-[50px]' alt="" />
               <h1 className=' text-sm text-left '>
                 Asosiasi <br />Experiential Learning <br />Indonesia
               </h1>

@@ -162,7 +162,10 @@ function Index() {
           <br /><br />
           Untuk mencapai Visi dan menjalankan Misi yang ditetapkan, AELI memiliki program-program pengembangan terkait Experiential Learning antara lain:
           <br /><br />
-          <strong className='font-bold'>Program peningkatan kapasitas anggota perorangan (Praktisi)</strong><br />
+
+        </p>
+        <div className='flex flex-row gap-10 items-center justify-center'>
+        <p className='w-[4000px]'> <strong className='font-bold'>Program peningkatan kapasitas anggota perorangan (Praktisi)</strong><br />
           ●	Certified Training “Basic Facilitator Experiential Learning”
           <br />
           ●	Certified Training “Advance Facilitator Experiential Learning”
@@ -178,11 +181,11 @@ function Index() {
           <br />
           ●	Accredited Experiential Program of AELI Member
           <br />
-          ●	Pendampingan Desa Wisata untuk menjadi Penyedia Layanan Wisata Experiential
-
-        </p>
+          ●	Pendampingan Desa Wisata untuk menjadi Penyedia Layanan Wisata Experiential</p>
+          <img src="/pic1.png" alt="" />
+        </div>
         <Title id='sertifikasi'>Sertifikasi</Title>
-        <p className='pt-4'><strong className='font-bold'>Sertifikasi Kepemanduan Outbound</strong><br />
+        <p className='pt-4'>
           AELI telah menjadi mitra BNSP dan LSP untuk mengadakan Sertifikasi Uji Kompetensi  Kepemanduan Outbound sejak tahun 2014. Daftar pelaksanaan Sertifikasi Uji Kompetensi Kepemanduan Outbound adalah sebagai berikut :
          
         </p></div>
