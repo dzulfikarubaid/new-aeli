@@ -13,7 +13,7 @@ interface DropdownItemProps {
 function DropdownItem({ path, label, white}: DropdownItemProps) {
 return (
     <li className={`py-2 ${!white ? ' text-black' : ' text-black'}`}>
-    <Link href={path} className={`hover:border-b-4 ${!white ? ' hover:border-blue-500' : ' hover:border-white'}`}>{label}</Link>
+    <Link href={path} className={`hover:border-b-4 ${!white ? ' hover:border-blue-900' : ' hover:border-blue-900'}`}>{label}</Link>
     </li>
 );
 }

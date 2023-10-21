@@ -13,7 +13,7 @@ interface DropdownItemProps {
 function DropdownItem({ path, label, white}: DropdownItemProps) {
 return (
     <li className={`py-2 ${!white ? ' text-white' : ' text-black'}`}>
-    <Link href={path} className={`hover:border-b-4 ${!white ? ' hover:border-blue-500' : ' hover:border-white'}`}>{label}</Link>
+    <Link href={path} className={`hover:border-b-4 ${!white ? ' hover:border-white' : ' hover:border-blue-900'}`}>{label}</Link>
     </li>
 );
 }
@@ -58,7 +58,7 @@ function Dropdown({ name, options, white, fix }: DropdownProps) {
       {isOpen && (
         <div
           className={`w-full absolute flex flex-col ${
-            !white ? 'bg-white/30' : 'bg-gray-50'
+            !white ? 'bg-white/20' : 'bg-gray-50'
           } left-0 py-4 shadow-xl`}
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={handleMenuLeave}

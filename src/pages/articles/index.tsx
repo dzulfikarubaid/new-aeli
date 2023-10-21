@@ -91,12 +91,12 @@ filteredData.forEach((item) => {
       />
 
 <div className='flex flex-row px-24 py-10 gap-10 justify-center'>
-    <section className='flex flex-col w-[800px] gap-10'>
+    <section className='flex flex-wrap gap-10'>
       {loading ? (
-        <h1>Memuat data...</h1>
+        null
       ) : filteredData.length > 0 ? (
         filteredData.map((item: any, index) => (
-          <div key={item.id} className='flex flex-col w-[600px]  gap-4 p-4'>
+          <div key={item.id} className='flex flex-col w-[500px] h-[500px] gap-4 p-4'>
             <div className='flex flex-row gap-1 h-6'>
               <Link className='hover:border-b hover:border-black w-fit' href={`/profile/${item.name}`}>
                 {item.name}
@@ -129,16 +129,6 @@ filteredData.forEach((item) => {
         <div>Artikel tidak ditemukan</div>
       )}
     </section>
-  <section>
-    <div className='w-[350px] flex flex-col gap-3'>
-      <h1 className='font-bold'>Peringkat Penulis Terbanyak</h1>
-      {Object.keys(nameCount).sort((a, b) => nameCount[b] - nameCount[a]).map((name, index) => (
-        <div key={index}>
-          {index+1}. {name}: {nameCount[name]} artikel
-        </div>
-      ))}
-    </div>
-  </section>
   </div>
 
     </div>

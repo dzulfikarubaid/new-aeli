@@ -8,6 +8,7 @@ import Image from 'next/image'
 import NavbarWhite from '../components/Navbar'
 import { FaArchway, FaEye } from 'react-icons/fa'
 import { PiEye, PiTarget } from 'react-icons/pi'
+import Footer from '../Footer'
 
 function Index() {
   // HistoryFlow.js
@@ -69,33 +70,24 @@ function Index() {
   return (
 
     <div id='top'>
-      <NoNavbar>
-        <div className='flex flex-row gap-10'>
-          <img className='w-[300px] h-auto' src="/avatar-blue.png" alt="" />
+      <NoNavbar className='px-20'>
+        <div className='flex flex-row gap-10 items-center'>
+          <img className='w-[300px] h-auto' src="Foto Pengurus/Nurfahmi.png" alt="" />
           <div className='text-left '>
-            <h1 className='text-3xl mb-6 font-bold'>Nama Ketua</h1>
+            <h1 className='text-3xl mb-6 font-bold'>Nurfahmi</h1>
             <p>&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente culpa magnam possimus labore voluptas quos at alias nulla nam, adipisci dignissimos doloremque esse nostrum, aspernatur harum vel. Aliquid, facere debitis.&quot;</p>
           </div>
         </div>
-        {/* <Title id='aeli'>Asosiasi Experiential Learning Indonesia</Title>
-        <p className='pt-4 px-10'>
-          Asosiasi Experiential Learning Indonesia (AELI) adalah asosiasi yang hadir sebagai wadah bagi penyedia layanan yang menjalankan program peningkatan kapasitas Sumber Daya Manusia (SDM) dengan pembelajaran berbasis pengalaman/Experiential Learning.
-          <br /><br />
-          AELI memiliki harapan dan keinginan untuk bisa memberi kontribusi nyata dalam meningkatkan SDM masyarakat Indonesia. Hal yang dilakukan AELI untuk dapat mewujudkan harapan tersebut adalah dengan merancang berbagai kegiatan Experiential Learning, seperti program pengenalan metode, provider, dan praktisi Experiential Learning.
-          <br /><br />
-          AELI menilai bahwa semakin banyak orang yang mengenal dan menggunakan metode Experiential Learning, maka akan semakin banyak pula manusia Indonesia yang memiliki kapasitas mumpuni.
-
-        </p> */}
-        <div className='flex flex-col gap-10 w-full p-10'>
+        <div className='flex flex-col gap-10 w-full'>
           <div className='text-center flex flex-col justify-center items-center'>
             <PiEye size={50}></PiEye>
-            <h1 className='font-bold text-3xl text-center text-[#EC4969] '>Vision</h1></div>
+            <h1 className='font-bold text-3xl text-center text-blue-900'>Vision</h1></div>
           <p className=''>
             Menjadi wadah dan mitra yang berkualitas bagi seluruh lembaga atau perorangan pengguna metode pelatihan berbasis pengalaman di Indonesia dan bertanggung jawab terhadap pengembangan kualitas manusia Indonesia
           </p>
           <div className='text-center flex flex-col justify-center items-center'>
             <PiTarget size={50}></PiTarget>
-            <h1 className='font-bold text-3xl text-center text-[#EC4969] '>Mission</h1></div>
+            <h1 className='font-bold text-3xl text-center text-blue-900 '>Mission</h1></div>
           <p className=''>
             ● Memasyarakatkan pelatihan berbasis pengalaman kepada masyarakat Indonesia
             <br />
@@ -103,21 +95,26 @@ function Index() {
             <br />
             ● Meningkatkan kualitas pelaksana pelatihan berbasis pengalaman sehingga menjadi pelaksana pelatihan yang bertanggung jawab terhadap pengembangan manusia Indonesia
           </p></div>
-        <div className='h-[600px] w-auto m-10 flex flex-col items-center p-16' style={{ background: `url(bg-history.png)`, backgroundSize: '100% 100%', backgroundPosition: 'center' }}>
+        <div className='h-[600px] w-auto my-10 flex flex-col items-center p-16' style={{ background: `url(bg-history.png)`, backgroundSize: '100% 100%', backgroundPosition: 'center' }}>
           <h1 className='text-white font-bold'>Our Journey</h1>
           <div className='flex flex-1'>
             <HistoryFlow />
           </div>
         </div>
-
-        <Title id='sejarah'>Sejarah</Title>
-        <p className='pt-4 px-10'>
-          <strong className='font-bold'>Masuknya Outward Bound ke Indonesia
+        <div >
+  
+        <div className='flex flex-row gap-10'>
+        <h1 className='text-3xl w-[300px]'>Sejarah Pembentukan</h1>
+        <h1 className='text-justify'>
+        <strong className='font-bold'>Masuknya Outward Bound ke Indonesia
           </strong>
           <br />
-          Sejarah AELI tidak bisa dipisahkan dari masuknya Outward Bound ke Indonesia. Secara resmi Outward Bound Indonesia (OBI) yang merupakan lembaga pendidikan informal didirikan pada tahun 1990, oleh Djoko Kusumowidagdo, dan segera mendapat respon positif dari masyarakat.
-          <br /><br />
-          Konsep OBI dianggap sebagai lahan bisnis baru dan segera diikuti oleh banyak lembaga serupa. Salah satu lembaga sengaja menghilangkan kata “ward” hingga terciptalah salah kaprah istilah Outbound sampai sekarang. Sepanjang dekade 1990-an, lembaga/organisasi pendidikan yang menggunakan medium “aktivitas luar ruang” tumbuh dengan cepat.
+          Sejarah AELI tidak bisa dipisahkan dari masuknya Outward Bound ke Indonesia. Secara resmi Outward Bound Indonesia (OBI) yang merupakan lembaga pendidikan informal didirikan pada tahun 1990, oleh Djoko Kusumowidagdo, dan segera mendapat respon positif dari masyarakat. Konsep OBI dianggap sebagai lahan bisnis baru dan segera diikuti oleh banyak lembaga serupa. Salah satu lembaga sengaja menghilangkan kata “ward” hingga terciptalah salah kaprah istilah Outbound sampai sekarang. Sepanjang dekade 1990-an, lembaga/organisasi pendidikan yang menggunakan medium “aktivitas luar ruang” tumbuh dengan cepat.</h1>
+        </div>
+        
+        <p >
+          
+          
           <br /><br />
           Terdapat banyak istilah yang digunakan untuk menyebutkan aktivitas luar ruang, seperti adventure, outdoor training, dan lain sebagainya. Berbagai istilah tersebut kemudian dikerucutkan dan istilah outbound terpilih untuk diadopsi. Selain menggunakan medium luar ruang pendidikan, jenis ini juga menggunakan media “game”. Salah satu aktivitas yang kemudian melekat erat dan identik dengan istilah outbound adalah flying fox.
           <br /><br />
@@ -160,7 +157,7 @@ function Index() {
           Deklarasi ini dilakukan bersamaan dengan penyelenggaraan Festival Outbound Nasional I (FON I). Acara FON I sendiri sudah berlangsung sejak tanggal 8 Juni dengan berbagai aktivitas, mulai dari pelatihan, seminar, dan pameran. Setelah dideklarasikan, para deklarator melanjutkan acara dengan mengadakan Musyawarah Nasional I (Munas I) untuk membentuk kepengurusan, memilih Ketua, dan merancang program kerja, termasuk menentukan tempat sekretariat.
         </p>
         <Title id='program'>Program</Title>
-        <p className='pt-4 px-10'>
+        <p className='pt-4'>
           Konsep Experiential Learning yang banyak dikenal orang adalah program capacity building, character building, dan competency building. Konsep tersebut kemudian semakin berkembang menjadi berbagai progam dalam bentuk gathering, outing, wisata games based learning, dan lain sebagainya.
           <br /><br />
           Untuk mencapai Visi dan menjalankan Misi yang ditetapkan, AELI memiliki program-program pengembangan terkait Experiential Learning antara lain:
@@ -185,41 +182,27 @@ function Index() {
 
         </p>
         <Title id='sertifikasi'>Sertifikasi</Title>
-        <p className='pt-4 px-10'><strong className='font-bold'>Sertifikasi Kepemanduan Outbound</strong><br />
+        <p className='pt-4'><strong className='font-bold'>Sertifikasi Kepemanduan Outbound</strong><br />
           AELI telah menjadi mitra BNSP dan LSP untuk mengadakan Sertifikasi Uji Kompetensi  Kepemanduan Outbound sejak tahun 2014. Daftar pelaksanaan Sertifikasi Uji Kompetensi Kepemanduan Outbound adalah sebagai berikut :
-          <br /><br />
-          1.	Tebet, Senin, 17 November 2014 (para asesor)
-          <br />
-          2.	Cibubur, Selasa, 24 Maret 2015
-          <br />
-          3.	Pancawati, Selasa, April 2015
-          <br />
-          4.	Boyolali, Selasa, 26 Mei 2015
-          <br />
-          5.	Denpasar, Rabu, 25 November 2015
-          <br />
-          6.	Kaliurang, Selasa, 1 Desember 2015
-          <br />
-          7.	Cibubur, Minggu, 6 Desember 2015
-          <br />
-          8.	Panjang Jiwo, Rabu, 16 Desember 2015
-          <br />
-          9.	Lembang, Senin, 10 Mei 2016
-          <br />
-          10.	Denpasar, Rabu-Kamis, 2-3 Agustus 2017
-          <br />
-          11.	Lubana Sengkol, Selasa-Rabu, 15-16 Agustus 2017
-          <br />
-          12.	Makassar, Minggu, 20 Agustus 2017
-          <br />
-        </p>
-        {/* {
-          fix &&
-          <Link href="#top" scroll={false} className='bottom-8 w-10 fixed right-8 ease-in-out duration-700 '>
-          <Image width={40} height={40} src="/backtop.png" alt="" />
-        </Link>
-        } */}
-      </NoNavbar></div>
+         
+        </p></div>
+        <div className='flex flex-wrap gap-6 justify-center w-full items-center'>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Tebet, Senin, 17 November 2014 (para asesor)</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Cibubur, Selasa, 24 Maret 2015</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Pancawati, Selasa, April 2015</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Boyolali, Selasa, 26 Mei 2015</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Denpasar, Rabu, 25 November 2015</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Kaliurang, Selasa, 1 Desember 2015</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Cibubur, Minggu, 6 Desember 2015</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Panjang Jiwo, Rabu, 16 Desember 2015</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Lembang, Senin, 10 Mei 2016</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Denpasar, Rabu-Kamis, 2-3 Agustus 2017</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Lubana Sengkol, Selasa-Rabu, 15-16 Agustus 2017</h1>
+        <h1 className='bg-blue-900 rounded-full py-3 px-3 text-white mt-4 w-[500px] text-center' >Makassar, Minggu, 20 Agustus 2017</h1>
+        </div>
+         
+      </NoNavbar>
+      <Footer></Footer></div>
   )
 }
 
