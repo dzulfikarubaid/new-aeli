@@ -13,7 +13,7 @@ const Spotlight = ({ slides }: any) => {
           <h1 className='text-4xl font-extrabold'>{judul}</h1>
           <h1>{deskripsi}</h1>
         </div>
-        <img className='w-[720px] h-auto' src={img} alt='' />
+        <img className='w-[400px] h-auto' src={img} alt='' />
       </div>
     );
   }

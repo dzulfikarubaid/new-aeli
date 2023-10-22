@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import useResponsive from '@/components/useResponsive';
 import { FaBurger } from 'react-icons/fa6';
 import {FiMenu} from 'react-icons/fi';
+import {IoMdClose} from 'react-icons/io';
 interface DropdownItemProps {
     path: string;
     label: string;
@@ -131,7 +132,9 @@ function Navbar(props:any){
   const {push} = useRouter()
   function handleSignout(){
     signOut()
+
   }
+  const [isOpen, setIsOpen] = useState(false);
   const {isDesktop, isTablet, isMobile, isOnlyMobile} = useResponsive()
     return(
       <div className=''>
@@ -169,10 +172,38 @@ function Navbar(props:any){
             }
             </div>
             </> 
-            : 
-            <div className={`${!white ? 'text-white' : 'text-black'}`}>
-              <FiMenu size={40}></FiMenu>
-            </div>
+            :
+            isOpen == false ?
+            <button onClick={()=>{
+              setIsOpen(!isOpen)
+            }} className={`${!white ? 'text-white' : 'text-black'}`}>
+              <FiMenu size={45}></FiMenu>
+              
+            </button>
+            :
+            <div className='text-center top-0 left-0 bg-gray-900 w-full flex-col h-[2500px] fixed'>
+            <div className='flex text-white flex-row justify-between items-center p-10'>
+            <div className='flex gap-10 items-center'>
+            <Image width={70} height={70} className='w-[50px] h-[50px]' src="/logo-aeli-putih.png" alt=""></Image>
+            <h1 className='text-3xl'>AELI</h1></div>
+            <button onClick={()=>{
+              setIsOpen(!isOpen)
+            }} >
+              <IoMdClose size={45}></IoMdClose>
+            </button></div>
+            <div className='flex flex-col gap-10 text-white text-3xl'>
+            <Link className='mt-10' href={'/aeli'}>About</Link>
+            <Link href={'/activities'} className={`hover:border-b-white`}>
+              Activities
+              </Link>
+              <Link href={'/dpd'}>DPD</Link>
+              <Link href={'/members'}>Members</Link>
+              <Link href="/articles">Articles</Link>
+              <Link href="/news">News</Link></div>
+              
+              </div>
+              
+            
             }
         </div>
         

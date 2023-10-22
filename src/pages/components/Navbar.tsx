@@ -5,6 +5,10 @@ import { BiChevronDown } from "react-icons/bi";
 import {signIn, signOut, useSession} from 'next-auth/react'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import useResponsive from '@/components/useResponsive';
+import { FaBurger } from 'react-icons/fa6';
+import {FiMenu} from 'react-icons/fi';
+import {IoMdClose} from 'react-icons/io';
 interface DropdownItemProps {
     path: string;
     label: string;
@@ -129,19 +133,23 @@ function NavbarWhite(props:any){
   function handleSignout(){
     signOut()
   }
+  const [isOpen, setIsOpen] = useState(false);
+  const {isDesktop, isTablet, isMobile, isOnlyMobile} = useResponsive()
     return(
       <div className=''>
         
         <div className={`fixed ${className} z-[9999] top-0 flex justify-between flex-row w-full text-black  px-10  items-center bg-white
         `} >
-            <Link href="/" className=' flex flex-row gap-[calc(1/4*50px)] items-center justify-center'>
+            <Link href="/" className='py-6 flex flex-row gap-[calc(1/4*50px)] items-center justify-center'>
                 {!white ? <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" /> : <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" />}
                 <div>
                   <h1 className={`text-[calc(1/4*50px)] ${!white ? 'text-black' : 'text-black'}`}>Asosiasi<br/>Experiential Learning<br/> Indonesia</h1>
 
                 </div>
             </Link>
-            <div className={`flex flex-row gap-8 items-center ${!fix ? 'text-black' : 'text-black'}`}>
+            {
+              isDesktop ? <>
+              <div className={`flex flex-row gap-8 items-center text-black`}>
             {dropdowns.map((dropdown, index) => (
               <Dropdown key={index} name={dropdown.name} options={dropdown.options} white={white} fix={fix}/>
             ))}
@@ -151,21 +159,52 @@ function NavbarWhite(props:any){
               <Link href="/articles">Articles</Link>
               <Link href="/news">News</Link>
             </div>
-            
-            {/* <li><Link href="/signin" className={` py-2 px-3 ${!white ? 'text-black bg-white hover:bg-gray-100' : 'text-black bg-blue-500 hover:bg-blue-600'}`}>Sign In</Link></li> */}
             <div>
             {
               data ?
               <div className='flex flex-row gap-4 items-center'>
-                <Link className={`${white ? 'text-black' : 'text-black'}`} href={`/profile/${data.user.name}`}>{data.user.name}</Link>
-                <button className={` py-2 px-3 ${!white ? 'text-black bg-white hover:bg-gray-100' : ''}`} onClick={handleSignout}>Sign Out</button>
+                <Link className={`text-black`} href={`/profile/${data.user.name}`}>{data.user.name}</Link>
+                <button className={` py-2 rounded-full border-2 px-4 ${!white ? 'text-white border-white' : 'text-black border-black'}`}  onClick={handleSignout}>Sign Out</button>
               </div>
               :
-              <button className={` py-2 px-3 ${!white ? 'text-black bg-white hover:bg-gray-100' : ''}`} onClick={()=>signIn()}>Sign In</button>
+              <button className={` py-2 rounded-full border-2 px-4 text-black border-black`} onClick={()=>signIn()}>Sign In</button>
             }
             </div>
-        </div>
-        
+            </> 
+            :
+            isOpen == false ?
+            <button onClick={()=>{
+              setIsOpen(!isOpen)
+            }} className={` text-black`}>
+              <FiMenu size={45}></FiMenu>
+              
+            </button>
+            :
+            <div className='text-center top-0 left-0 bg-gray-900 w-full flex-col h-[2500px] fixed'>
+            <div className='flex text-white flex-row justify-between items-center p-10'>
+            <div className='flex gap-10 items-center'>
+            <Image width={70} height={70} className='w-[50px] h-[50px]' src="/logo-aeli-putih.png" alt=""></Image>
+            <h1 className='text-3xl'>AELI</h1></div>
+            <button onClick={()=>{
+              setIsOpen(!isOpen)
+            }} >
+              <IoMdClose size={45}></IoMdClose>
+            </button></div>
+            <div className='flex flex-col gap-10 text-white text-3xl'>
+            <Link className='mt-10' href={'/aeli'}>About</Link>
+            <Link href={'/activities'} className={`hover:border-b-white`}>
+              Activities
+              </Link>
+              <Link href={'/dpd'}>DPD</Link>
+              <Link href={'/members'}>Members</Link>
+              <Link href="/articles">Articles</Link>
+              <Link href="/news">News</Link></div>
+              
+              </div>
+              
+            
+            }
+            </div>
       </div>
         
         
