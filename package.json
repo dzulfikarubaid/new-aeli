@@ -39,6 +39,7 @@
     "react-iframe": "^1.8.5",
     "react-leaflet": "^4.2.1",
     "react-organizational-chart": "^2.2.1",
+    "react-responsive": "^9.0.2",
     "react-share": "^4.4.1",
     "react-simple-maps": "^3.0.0",
     "react-social-media-embed": "^2.3.6",

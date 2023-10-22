@@ -7,7 +7,7 @@ export default function Document() {
       <title>AELI</title>
       <link rel="shortcut icon" href="logo-aeli.png" type="image/x-icon" />
       <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"></link>
-      <body className='font-sans'>
+      <body className=''>
         <Main/>
         <NextScript />
       </body>

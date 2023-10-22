@@ -72,7 +72,7 @@ function Index() {
     <div id='top'>
       <NoNavbar className='px-20'>
         <div className='flex flex-row gap-10 items-center'>
-          <img className='w-[300px] h-auto' src="Foto Pengurus/Nurfahmi.png" alt="" />
+          <Image width={300} height={400} src="/Foto Pengurus/Nurfahmi.png" alt="" />
           <div className='text-left '>
             <h1 className='text-3xl mb-6 font-bold'>Nurfahmi</h1>
             <p>&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente culpa magnam possimus labore voluptas quos at alias nulla nam, adipisci dignissimos doloremque esse nostrum, aspernatur harum vel. Aliquid, facere debitis.&quot;</p>
@@ -158,14 +158,12 @@ function Index() {
         </p>
         <Title id='program'>Program</Title>
         <p className='pt-4'>
-          Konsep Experiential Learning yang banyak dikenal orang adalah program capacity building, character building, dan competency building. Konsep tersebut kemudian semakin berkembang menjadi berbagai progam dalam bentuk gathering, outing, wisata games based learning, dan lain sebagainya.
-          <br /><br />
-          Untuk mencapai Visi dan menjalankan Misi yang ditetapkan, AELI memiliki program-program pengembangan terkait Experiential Learning antara lain:
+          Konsep Experiential Learning yang banyak dikenal orang adalah program capacity building, character building, dan competency building. Konsep tersebut kemudian semakin berkembang menjadi berbagai progam dalam bentuk gathering, outing, wisata games based learning, dan lain sebagainya. Untuk mencapai Visi dan menjalankan Misi yang ditetapkan, AELI memiliki program-program pengembangan terkait Experiential Learning antara lain:
           <br /><br />
 
         </p>
-        <div className='flex flex-row gap-10 items-center justify-center'>
-        <p className='w-[4000px]'> <strong className='font-bold'>Program peningkatan kapasitas anggota perorangan (Praktisi)</strong><br />
+        <div className='flex flex-row justify-between items-center r'>
+        <p className='w-[600px]'> <strong className='font-bold'>Program peningkatan kapasitas anggota perorangan (Praktisi)</strong><br />
           ●	Certified Training “Basic Facilitator Experiential Learning”
           <br />
           ●	Certified Training “Advance Facilitator Experiential Learning”

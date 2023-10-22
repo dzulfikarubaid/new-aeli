@@ -19,6 +19,7 @@ import Footer from './Footer';
 import Prestasi from './Prestasi';
 import Spotlight from './Spotlight';
 import Link from 'next/link';
+import useResponsive from '@/components/useResponsive';
 const slides = [
   { img: 'foto-landing.png', judul: 'Slide 1', deskripsi: 'Lorem ipsum 1' },
   { img: 'image 1.png', judul: 'Slide 2', deskripsi: 'Lorem ipsum 2' },
@@ -26,13 +27,14 @@ const slides = [
 ];
 export default function Home() {
   const [dpd, setDPD] = useState(false)
+  const {isMobile, isDesktop} = useResponsive()
   return (
-    <>
+    <div className='w-full flex-col'>
     <Head>
       <title>Home - AELI</title>
     </Head>
     <Navbar></Navbar>
-    <div className='flex flex-col max-w-full'>
+    <div className={`flex flex-col ${!isDesktop ? 'w-[1000px]' : 'max-w-full'}`}>
     <MySwiper></MySwiper>
     <div className='flex-col text-center items-center relative justify-center w-full p-10' style={{background:'#1B3B64'}}>
    <div className='absolute left-1/2 transform -translate-x-1/2 text-center'>
@@ -71,7 +73,7 @@ export default function Home() {
       dpd && <Table></Table>
     }
     </div>
-    </div>
+   
     <Spotlight slides={slides}></Spotlight>
     <div className='flex flex-col justify-center items-center text-center py-20'>
     <h1 className='text-xl'>Social Media Update</h1>
@@ -80,13 +82,14 @@ export default function Home() {
    <InstagramEmbed url="https://www.instagram.com/reel/CxxAc73rDeh/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} height={600} />
     <InstagramEmbed url="https://www.instagram.com/reel/Cxrywt-LLy-/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} height={600}/>
 </div>
+
     
     </div>
     
     <Footer></Footer>
    
     
-    
-    </>
+     </div>
+    </div>
   )
 }

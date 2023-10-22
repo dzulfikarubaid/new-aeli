@@ -5,6 +5,9 @@ import { BiChevronDown } from "react-icons/bi";
 import {signIn, signOut, useSession} from 'next-auth/react'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import useResponsive from '@/components/useResponsive';
+import { FaBurger } from 'react-icons/fa6';
+import {FiMenu} from 'react-icons/fi';
 interface DropdownItemProps {
     path: string;
     label: string;
@@ -104,7 +107,7 @@ function Navbar(props:any){
   const {className} = props
   const {data}:any = useSession()
   function setWhited(){
-    if(window.scrollY > 1600){
+    if(window.scrollY > 1200){
       setWhite(true);
     }else{
       setWhite(false);
@@ -112,7 +115,7 @@ function Navbar(props:any){
   }
   function setFixed(){
    
-      if(window.scrollY > 1600){
+      if(window.scrollY > 1200){
         setFix(true);
       }else{
         setFix(false);
@@ -129,19 +132,22 @@ function Navbar(props:any){
   function handleSignout(){
     signOut()
   }
+  const {isDesktop, isTablet, isMobile, isOnlyMobile} = useResponsive()
     return(
       <div className=''>
         
-        <div className={`fixed ${className} z-[9999] top-0 flex justify-between flex-row w-full text-black  px-10  items-center ${white ? 'bg-white' : ''}
+        <div className={`fixed ${className} z-[9999] top-0 flex justify-between flex-row w-full text-black  px-10 items-center ${white ? 'bg-white' : ''}
         `} >
-            <Link href="/" className=' flex flex-row gap-[calc(1/4*50px)] items-center justify-center'>
+            <Link href="/" className=' flex flex-row gap-[calc(1/4*50px)] items-center justify-center py-6'>
                 {!white ? <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli-putih.png" alt="" /> : <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" />}
                 <div>
                   <h1 className={`text-[calc(1/4*50px)] ${!white ? 'text-white' : 'text-black'}`}>Asosiasi<br/>Experiential Learning<br/> Indonesia</h1>
 
                 </div>
             </Link>
-            <div className={`flex flex-row gap-8 items-center ${!fix ? 'text-white' : 'text-black'}`}>
+            {
+              isDesktop ? <>
+              <div className={`flex flex-row gap-8 items-center ${!fix ? 'text-white' : 'text-black'}`}>
             {dropdowns.map((dropdown, index) => (
               <Dropdown key={index} name={dropdown.name} options={dropdown.options} white={white} fix={fix}/>
             ))}
@@ -151,8 +157,6 @@ function Navbar(props:any){
               <Link href="/articles">Articles</Link>
               <Link href="/news">News</Link>
             </div>
-            
-            {/* <li><Link href="/signin" className={` py-2 px-3 ${!white ? 'text-black bg-white hover:bg-gray-100' : 'text-white bg-blue-500 hover:bg-blue-600'}`}>Sign In</Link></li> */}
             <div>
             {
               data ?
@@ -164,6 +168,12 @@ function Navbar(props:any){
               <button className={` py-2 rounded-full border-2 px-4 ${!white ? 'text-white border-white' : 'text-black border-black'}`} onClick={()=>signIn()}>Sign In</button>
             }
             </div>
+            </> 
+            : 
+            <div className={`${!white ? 'text-white' : 'text-black'}`}>
+              <FiMenu size={40}></FiMenu>
+            </div>
+            }
         </div>
         
       </div>
