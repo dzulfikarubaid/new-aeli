@@ -4,6 +4,8 @@ import { BiChevronDown } from "react-icons/bi";
 import {signIn, signOut, useSession} from 'next-auth/react'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+
 interface DropdownItemProps {
     path: string;
     label: string;
@@ -133,13 +135,15 @@ function NavbarWhite(props:any){
         
         <div className={`fixed ${className} z-[9999] top-0 flex justify-between flex-row w-full text-black  px-10  items-center bg-white
         `} >
-            <a href="" className=' flex flex-row gap-[calc(1/4*50px)] items-center justify-center'>
-                {!white ? <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" /> : <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" />}
-                <div>
-                  <h1 className={`text-[calc(1/4*50px)] ${!white ? 'text-black' : 'text-black'}`}>Asosiasi<br/>Experiential Learning<br/> Indonesia</h1>
+            <Link href="/">
+  <div className='flex flex-row gap-[calc(1/4*50px)] items-center justify-center'>
+    {!white ? <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" /> : <Image width={50} height={50} className='w-[50px] h-[50px]' src="/logo-aeli.png" alt="" />}
+    <div>
+      <h1 className={`text-[calc(1/4*50px)] ${!white ? 'text-black' : 'text-black'}`}>Asosiasi<br/>Experiential Learning<br/> Indonesia</h1>
+    </div>
+  </div>
+</Link>
 
-                </div>
-            </a>
             <div className={`flex flex-row gap-8 items-center ${!fix ? 'text-black' : 'text-black'}`}>
             {dropdowns.map((dropdown, index) => (
               <Dropdown key={index} name={dropdown.name} options={dropdown.options} white={white} fix={fix}/>

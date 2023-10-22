@@ -7,10 +7,11 @@ import Navbar from './SpecialNavbar'
 const Dpd = () => {
   return (
     <div>
-    <Navbar><h1 className='font-bold text-xl text-left p-4'>Daftar DPD AELI di Indonesia</h1>
+    <Navbar>
     
     </Navbar>
     <div className='p-10 pt-20'>
+    <h1 className='font-bold text-xl text-left p-4'>Daftar DPD AELI di Indonesia</h1>
       <Table></Table>
     </div>
   
