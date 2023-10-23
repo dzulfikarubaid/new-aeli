@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { FaPenToSquare } from 'react-icons/fa6';
 import useResponsive from '@/components/useResponsive';
+import { IoIosClose } from 'react-icons/io';
 function Navbar({ searchInput, setSearchInput, handleSearchSubmit }:any) {
     const searchInputRef:any = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -18,12 +19,13 @@ function Navbar({ searchInput, setSearchInput, handleSearchSubmit }:any) {
       </div>
       <div className='flex flex-row gap-8 items-center'>
         {isOpen ? (
-          <form onSubmit={handleSearchSubmit} className='flex flex-row gap-3 rounded-full border-gray-500 bg-gray-100 border-[1px] p-2 pl-4 py-1 items-center'>
+          <form onSubmit={handleSearchSubmit} className='flex flex-row gap-3 rounded-full border-gray-500 bg-gray-100 border-[1px] p-2 pl-4 py-1 items-center w-[300px]'>
             <button type='submit'><FaSearch color='gray' /></button>
             <input
+            
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
-              className='focus:outline-none bg-transparent'
+              className='focus:outline-none bg-transparent w-[200px]'
               type='text'
               ref={(input) => {
                 if (input && isOpen) {
@@ -31,11 +33,11 @@ function Navbar({ searchInput, setSearchInput, handleSearchSubmit }:any) {
                 }
                 searchInputRef.current = input;
               }}
-              placeholder='Cari judul artikel...'
+              placeholder='Cari Artikel'
             />
          
             <button onClick={() => setIsOpen(!isOpen)}>
-              <FaTimes color='gray' />
+              <IoIosClose size={30} color='gray' />
             </button>
           </form>
         ) : (

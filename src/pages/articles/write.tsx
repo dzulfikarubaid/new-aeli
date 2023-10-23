@@ -218,7 +218,7 @@ export default function Write() {
     
    
     <div className='absolute right-10 bottom-10 z-[99999999] flex flex-row gap-10 justify-center items-center'>
-    <button className='bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-xl ' onClick={() => setIsOpen(!isOpen)}>{loading ? 'Loading...' : <FaSave size={30}/>}</button>
+    <button className='bg-blue-900 hover:bg-gray-800 text-white font-bold py-3 px-3 rounded-xl ' onClick={() => setIsOpen(!isOpen)}><FaSave size={25}/></button>
     
     
     
