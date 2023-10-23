@@ -3,7 +3,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import { useRouter } from 'next/router';
 import { JWT } from 'next-auth/jwt';
 import { useSession } from 'next-auth/react';
-import { FaTimes, FaExclamationTriangle, FaExclamationCircle } from 'react-icons/fa';
+import { FaTimes, FaExclamationTriangle, FaExclamationCircle, FaSave } from 'react-icons/fa';
 import classNames from "classnames"; 
 const RemoveImagePlugin = (editor:any) => {
     editor.ui.registry.addMenuItem('removeimage', {
@@ -217,8 +217,8 @@ export default function Write() {
     />
     
    
-    <div className='absolute right-10 top-6 z-[99999999] flex flex-row gap-10 justify-center items-center'>
-    <button className='bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-xl ' onClick={() => setIsOpen(!isOpen)}>{loading ? 'Loading...' : 'Save'}</button>
+    <div className='absolute right-10 bottom-10 z-[99999999] flex flex-row gap-10 justify-center items-center'>
+    <button className='bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-xl ' onClick={() => setIsOpen(!isOpen)}>{loading ? 'Loading...' : <FaSave size={30}/>}</button>
     
     
     
