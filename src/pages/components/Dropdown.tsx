@@ -181,7 +181,7 @@ function Navbar(props:any){
               
             </button>
             :
-            <div className='text-center top-0 left-0 bg-gray-900 w-full flex-col h-[2500px] fixed'>
+            <div className='text-center top-0 left-0 bg-gray-900 w-full flex-col h-[2500px] fixed z-[99999]'>
             <div className='flex text-white flex-row justify-between items-center p-10'>
             <div className='flex gap-10 items-center'>
             <Image width={70} height={70} className='w-[50px] h-[50px]' src="/logo-aeli-putih.png" alt=""></Image>

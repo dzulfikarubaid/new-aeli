@@ -179,7 +179,7 @@ function Index() {
           ●	Accredited Experiential Program of AELI Member
           <br />
           ●	Pendampingan Desa Wisata untuk menjadi Penyedia Layanan Wisata Experiential</p>
-          <img src="/pic1.png" alt="" />
+        
         </div>
         <Title id='sertifikasi'>Sertifikasi</Title>
         <p className='pt-4'>
