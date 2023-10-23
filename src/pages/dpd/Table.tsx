@@ -155,7 +155,7 @@ export default function Table() {
   return (
     <div className="w-full">
       <Card className="relative h-full overflow-scroll p-4 w-full">
-      <div className='flex flex-row gap-3 rounded-full border-gray-500 bg-gray-100 border-[1px] p-2 pl-4 py-1 items-center w-[400px] self-end mb-10'>
+      <div className='flex flex-row gap-3 rounded-full border-gray-500 bg-gray-100 border-[1px] p-2 pl-4 py-1 items-center min-w-[400px]400px] self-end mb-10'>
       <FaSearch color='gray'></FaSearch>
       <input type="text" 
         placeholder="Cari nama cabang..."

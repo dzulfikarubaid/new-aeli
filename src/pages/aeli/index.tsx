@@ -9,13 +9,13 @@ import NavbarWhite from '../components/Navbar'
 import { FaArchway, FaEye } from 'react-icons/fa'
 import { PiEye, PiTarget } from 'react-icons/pi'
 import Footer from '../Footer'
-
+import useResponsive from '@/components/useResponsive'
 function Index() {
   // HistoryFlow.js
-
+  const { isDesktop, isMobile, isTablet, isOnlyMobile } = useResponsive()
   const HistoryStep = ({ year, event }: any) => {
     return (
-      <div className="flex flex-col items-center mb-8">
+      <div className="flex flex-col items-center mb-8 ">
         <div className="w-16 h-16 bg-white rounded-full mb-4"></div>
         <p className="text-white font-semibold">{year}</p>
         <p className="text-white">{event}</p>
@@ -36,13 +36,12 @@ function Index() {
 
   const HistoryFlow = () => {
     return (
-      <div className="flex justify-center items-center ">
-        <div className="flex space-x-8">
+     
+        <div className="flex flex-wrap p-10 justify-center items-center">
           {historyData.map((step, index) => (
             <HistoryStep key={index} {...step} />
           ))}
         </div>
-      </div>
     );
   };
   function Title(props: any) {
@@ -69,9 +68,9 @@ function Index() {
   }, [])
   return (
 
-    <div id='top'>
-      <NoNavbar className='px-20'>
-        <div className='flex flex-row gap-10 items-center'>
+    <div id='top' className={`${!isDesktop ? 'w-[800px]' : 'w-full'} flex flex-col flex-center`}>
+      <NoNavbar className='px-20  flex justify-center flex-col items-center'>
+        <div className='flex flex-row gap-10 items-center justify-center '>
           <Image width={300} height={400} src="/Foto Pengurus/Nurfahmi.png" alt="" />
           <div className='text-left '>
             <h1 className='text-3xl mb-6 font-bold'>Nurfahmi</h1>
@@ -95,11 +94,11 @@ function Index() {
             <br />
             ● Meningkatkan kualitas pelaksana pelatihan berbasis pengalaman sehingga menjadi pelaksana pelatihan yang bertanggung jawab terhadap pengembangan manusia Indonesia
           </p></div>
-        <div className='h-[600px] w-auto my-10 flex flex-col items-center p-16' style={{ background: `url(bg-history.png)`, backgroundSize: '100% 100%', backgroundPosition: 'center' }}>
+        <div className=' my-10 flex flex-col items-center bg-gray-900 p-10' >
           <h1 className='text-white font-bold'>Our Journey</h1>
-          <div className='flex flex-1'>
+
             <HistoryFlow />
-          </div>
+      
         </div>
         <div >
   

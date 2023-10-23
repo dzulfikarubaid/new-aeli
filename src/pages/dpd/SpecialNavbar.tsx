@@ -17,7 +17,7 @@ interface DropdownItemProps {
 function DropdownItem({ path, label, white}: DropdownItemProps) {
 return (
     <li className={`py-2 ${!white ? ' text-black' : ' text-black'}`}>
-    <Link href={path} className={`hover:border-b-4 ${!white ? ' hover:border-blue-900' : ' hover:border-blue-900'}`}>{label}</Link>
+    <a href={path} className={`hover:border-b-4 ${!white ? ' hover:border-blue-900' : ' hover:border-blue-900'}`}>{label}</a>
     </li>
 );
 }
@@ -92,9 +92,9 @@ function Dropdown({ name, options, white, fix }: DropdownProps) {
     {
       name: 'About',
       options: [
-        { label: 'Asosiasi Experiential Learning Indonesia', path: '/aeli' },
-        { label: 'Experiential Learning', path: '/el' },
-        { label: 'Dewan Pengurus Pusat', path: '/dpp' },
+        { label: 'Asosiasi Experiential Learning Indonesia', path: 'aeli' },
+        { label: 'Experiential Learning', path: 'el' },
+        { label: 'Dewan Pengurus Pusat', path: 'dpp' },
 
       ],
     },
