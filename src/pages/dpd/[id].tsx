@@ -11,6 +11,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import Navbar from "../components/Dropdown";
 import NoNavbar from "../NoNavbar";
 import Footer from "../Footer";
+import useResponsive from "@/components/useResponsive";
 
 interface DataItem {
   nama: string,
@@ -28,6 +29,7 @@ const DetailDPD = () => {
   const filteredFeatures = statesData.features.filter(
     feature => feature.properties?.slug === query.id
   );
+  const {isMobile, isDesktop} = useResponsive()
   const data = [{
         "id": 8,
         "nama": "Jawa Barat",
@@ -163,11 +165,13 @@ const DetailDPD = () => {
     // Handle the case where properties or state doesn't exist
     return <div>Invalid feature data</div>;
   }
-
+  
   const stateName = firstFeature.properties.state;
   return (
-    <div>
-      <NoNavbar></NoNavbar>
+    <div >
+      <NoNavbar className={`${!isDesktop ? 'w-[800px]' : 'w-full'}`}></NoNavbar>
+      
+        <div className={`${!isDesktop ? 'w-[800px]' : 'w-full'}`}>
         <div className="p-10">
         {
           
@@ -177,9 +181,10 @@ const DetailDPD = () => {
               <Head>
                 <title>DPD {item.nama.toUpperCase()}</title>
               </Head>
+              <p className="w-full text-center p-6 py-4 text-black text-3xl">DPD {item.nama}</p>
               
               <Map targetState={stateName}></Map>
-              <p className="w-full text-center p-6 py-4 bg-blue-400 text-white">DPD {item.nama}</p>
+              
               <div className="flex flex-row pt-10 gap-10">
               
               <iframe src={item.gmaps} ></iframe>
@@ -203,7 +208,7 @@ const DetailDPD = () => {
               </div>
               </div>
               <div className="mt-10 flex flex-col justify-center items-center">
-              <Link target="_blank" className="flex items-center justify-center flex-row gap-4 w-fit text-center p-6 py-2 rounded-xl bg-black text-white" href={`https://api.whatsapp.com/send?phone=62${parseFloat(item.contact.split(',')[0])}`}>
+              <Link target="_blank" className="flex mb-10 items-center justify-center flex-row gap-4 w-fit text-center p-6 py-2 rounded-xl bg-black text-white" href={`https://api.whatsapp.com/send?phone=62${parseFloat(item.contact.split(',')[0])}`}>
                 <h1>HUBUNGI DPD {item.nama.toUpperCase()}</h1>
                 <FaWhatsapp size={30}></FaWhatsapp>
               </Link>
@@ -216,8 +221,12 @@ const DetailDPD = () => {
           )) 
           :
           <div>DPD AELI pada provinsi {stateName} belum tersedia</div>
-        }</div>
+        }
+        </div>
+        
         <Footer></Footer>
+        </div>
+        
     </div>
   );
 };
