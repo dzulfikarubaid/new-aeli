@@ -182,9 +182,9 @@ function NavbarWhite(props:any){
             :
             <div className='text-center top-0 left-0 bg-gray-900 w-full flex-col h-[2500px] fixed'>
             <div className='flex text-white flex-row justify-between items-center p-10'>
-            <div className='flex gap-10 items-center'>
+            <Link href={'/'} className='flex gap-6 items-center'>
             <Image width={70} height={70} className='w-[50px] h-[50px]' src="/logo-aeli-putih.png" alt=""></Image>
-            <h1 className='text-3xl'>AELI</h1></div>
+            <h1 className='text-3xl'>AELI</h1></Link>
             <button onClick={()=>{
               setIsOpen(!isOpen)
             }} >

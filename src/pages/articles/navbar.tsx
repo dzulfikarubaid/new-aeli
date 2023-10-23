@@ -3,12 +3,13 @@ import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { FaPenToSquare } from 'react-icons/fa6';
-
+import useResponsive from '@/components/useResponsive';
 function Navbar({ searchInput, setSearchInput, handleSearchSubmit }:any) {
     const searchInputRef:any = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
+    const {isDesktop} = useResponsive()
   return (
-    <div className='flex flex-row justify-between items-center px-24 py-6'>
+    <div className={`flex flex-row justify-between ${!isDesktop?'w-[600px] px-10' : 'w-full px-24'} items-center py-6 `}>
       <div className='bg-white text-black w-full flex flex-row gap-3 items-center'>
         <Link href={'/'} className='font-semibold text-xl border-r-[1px] pr-3 border-black'>
           AELI
@@ -50,12 +51,12 @@ function Navbar({ searchInput, setSearchInput, handleSearchSubmit }:any) {
             className='flex flex-row gap-2 py-[5.5px] items-center '
           >
             <FaSearch />
-            Search
+            {!isDesktop ? '': 'Search'}
           </button>
         )}
         <Link href={'/articles/write'} className='flex flex-row items-center gap-2'>
           <FaPenToSquare />
-          Write
+          {!isDesktop ? '': 'Write'}
         </Link>
       </div>
     </div>
