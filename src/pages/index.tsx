@@ -77,7 +77,7 @@ export default function Home() {
     <Spotlight slides={slides}></Spotlight>
     <div className='flex flex-col justify-center items-center text-center py-20'>
     <h1 className='text-xl'>Social Media Update</h1>
-    <div className='gap-10 mt-10 flex flex-wrap w-full p-10 justify-center items-center'>
+    <div className={`gap-10 mt-10 flex flex-wrap ${!isDesktop ? 'w-[600px]' : 'w-full'} p-10 justify-center items-center`}>
   <InstagramEmbed url="https://www.instagram.com/p/Cx4gcr2PE1t/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} height={600}/>
    <InstagramEmbed url="https://www.instagram.com/reel/CxxAc73rDeh/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} height={600} />
     <InstagramEmbed url="https://www.instagram.com/reel/Cxrywt-LLy-/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==" width={328} height={600}/>

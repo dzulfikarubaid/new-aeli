@@ -19,7 +19,7 @@ function Activities() {
         <img className='w-auto' src="https://www.tourismvaganza.com/wp-content/uploads/2020/01/IMG_20200107_115718.jpg" alt="" />
         <h1>Kegiatan Pelantikan, Rakernas, dan Training of Trainer (TOT) dengan mengusung gerakan “AELI untuk Negeri” sebagai semangat kerja seluruh anggota AELI.</h1>
         <img className='w-auto' src="https://www.bernas.id/wp-content/uploads/2022/06/IMG_202206163_183158220-750x430.png" alt="" />
-        <h1>Bekerja sama dengan Disparekraf DKI Jakarta dan LSP Pramindo untuk melakukan proses penilaian mengenai knowledge), skills, dan attitude guna menentukan seorang FasEL sudah berkompeten  memandu sebuah kegiatan outbound sesuai dengan Standar Kompetensi Kerja Nasional Indonesia (SKKNI) atau belum.</h1>
+        <h1>Bekerja sama dengan Disparekraf DKI Jakarta dan LSP Pramindo untuk melakukan proses penilaian mengenai knowledge, skills, dan attitude guna menentukan seorang FasEL sudah berkompeten  memandu sebuah kegiatan outbound sesuai dengan Standar Kompetensi Kerja Nasional Indonesia (SKKNI) atau belum.</h1>
         <img className='w-auto' src="https://outboundoffroad.com/aeli-luncurkan-program-virtual-experiential-learning-detail-436887" alt="" />
         <h1>Modern Problems Require Modern Solutions. Kalimat yang tepat untuk mendeskripsikan upaya AELI dalam menghadapi tantangan pandemi Covid-19 dengan memaksimalkan teknologi sebagai media pelaksana experiential learning.
         </h1>
