@@ -5,6 +5,7 @@ import { FaPenToSquare } from 'react-icons/fa6';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import Navbar from './navbar';
 import { useRouter } from 'next/router';
+import useResponsive from '@/components/useResponsive';
 
 function Articles() {
   const [value, setValue] = useState([]);
@@ -81,8 +82,9 @@ filteredData.forEach((item) => {
     nameCount[name] = 1;
   }
 });
+const { isDesktop } = useResponsive()
   return (
-    <div>
+    <div className='flex flex-col w-full justify-center items-center'>
       <Navbar
         searchInput={searchInput}
         setSearchInput={setSearchInput}
@@ -90,25 +92,25 @@ filteredData.forEach((item) => {
         handleSearchSubmit={handleSearchSubmit}
       />
 
-<div className='flex flex-row px-24 py-10 gap-10 justify-center'>
-    <section className='flex flex-wrap gap-10'>
+<div className={`flex flex-col px-6 py-10 gap-10 justify-center items-center ${!isDesktop ? '' : 'w-full'}`}>
+    <section className={`flex flex-wrap gap-4 justify-center items-center `}>
       {loading ? (
         null
       ) : filteredData.length > 0 ? (
         filteredData.map((item: any, index) => (
-          <div key={item.id} className='flex flex-col w-[500px] h-[500px] gap-4 p-4'>
-            <div className='flex flex-row gap-1 h-6'>
+          <div key={item.id} className={`flex flex-col ${!isDesktop ? 'w-full' : 'w-[500px]'} border-[1px] rounded-xl h-fit gap-4 p-4`}>
+            <div className={`flex flex-row gap-1 h-6 ${!isDesktop ? 'text-[12px]' : 'text-xl'} `}>
               <Link className='hover:border-b hover:border-black w-fit' href={`/profile/${item.name}`}>
                 {item.name}
               </Link>
               <p>•</p>
               <Link href={`/articles/${item.id}`}>{formatTimeLeft(item.create_at)}</Link>
             </div>
-            <Link href={`/articles/${item.id}`} className=' flex flex-row justify-between items-start'>
+            <Link href={`/articles/${item.id}`} className=' flex flex-row justify-between gap-4'>
               <div>
-                <h1 className='font-bold text-xl'>{item.title}</h1>
+                <h1 className={`font-bold ${!isDesktop ? 'text-[16px]' : 'text-2xl'} `}>{item.title}</h1>
                 <div
-                  className='text-md font-light text-black'
+                  className={`font-light ${!isDesktop ? 'text-[12px]' : 'text-xl'} `}
                   dangerouslySetInnerHTML={{
                     __html:
                       item.content.length > 100

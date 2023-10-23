@@ -38,6 +38,7 @@ interface DataItem {
   title: string,
   create_at: string
 }
+import useResponsive from "@/components/useResponsive";
 
 function DetailArticles() {
   const [selectedArticle, setSelectedArticle] = useState<DataItem | null>(null);
@@ -48,6 +49,7 @@ function DetailArticles() {
   const router = useRouter();
   const articleTitle = selectedArticle ? selectedArticle.title : "Artikel tidak ditemukan";
   const [share, setShare] = useState(false);
+  const {isDesktop} = useResponsive()
   useEffect(() => {
     axios.get('/api/getarticles')
       .then((res) => {
@@ -113,18 +115,19 @@ function DetailArticles() {
       });
   };
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center ">
       <Navbar
         searchInput={searchInput}
         setSearchInput={setSearchInput}
         handleSearchSubmit={handleSearchSubmit}
       />
-      <div className="flex flex-col justify-center items-center">
+  
+       <div className={`flex flex-col justify-center items-center `}>
         {selectedArticle && (
-          <div className="w-[700px] flex flex-col gap-10">
-            <h1 className="font-extrabold text-[40px]">{articleTitle}</h1>
-            <div>
-              <Link className='hover:border-b hover:border-black' href={`/profile/${selectedArticle.name}`}>{selectedArticle.name}</Link>
+          <div className={`flex ${!isDesktop ? '' : 'w-[1000px]'} flex-col gap-10 justify-center items-center px-6`}>
+            <h1 className={`font-extrabold ${!isDesktop ? 'text-[20px]' : 'text-[40px]'}`}>{articleTitle}</h1>
+            <div className="flex flex-col w-full">
+              <Link className='hover:border-b w-fit hover:border-black' href={`/profile/${selectedArticle.name}`}>{selectedArticle.name}</Link>
               <h1>Diposting {formatTimeLeft(selectedArticle.create_at)}</h1>
               
               <div className="flex flex-row justify-between items-center mt-10 p-3 border-t border-b">
@@ -155,10 +158,13 @@ function DetailArticles() {
               </div>
               
             </div>
-            <div dangerouslySetInnerHTML={{ __html: selectedArticle.content }} />
+            <div className="w-full" dangerouslySetInnerHTML={{ __html: selectedArticle.content }} />
           </div>
         )}
+
       </div>
+     
+     
     </div>
   )
 }

@@ -10,7 +10,7 @@ function Navbar({ searchInput, setSearchInput, handleSearchSubmit }:any) {
     const [isOpen, setIsOpen] = useState(false);
     const {isDesktop} = useResponsive()
   return (
-    <div className={`flex flex-row justify-between ${!isDesktop?'w-[600px] px-10' : 'w-full px-24'} items-center py-6 `}>
+    <div className={`flex ${!isDesktop?'px-6' : 'px-10'} flex-row justify-between w-full items-center py-6 `}>
       <div className='bg-white text-black w-full flex flex-row gap-3 items-center'>
         <Link href={'/'} className='font-semibold text-xl border-r-[1px] pr-3 border-black'>
           AELI
