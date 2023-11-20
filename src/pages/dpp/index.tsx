@@ -4,13 +4,17 @@ import Image from 'next/image'
 import Dpp from '../../dpp'
 import Link from 'next/link'
 import NoNavbar from '../NoNavbar'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 const pengurus = [
     {
         nama: "NURFAHMI",
         jabatan: "Ketua Umum",
-        foto: "/avatar-blue.png"
+        foto: "/Foto Pengurus/Nurfahmi.png"
 
     },
     {
@@ -25,7 +29,7 @@ const pengurus = [
     },
     {
         nama: "NURSANTI ADJI",
-        jabatan: "Kepala BidangKesekretariatan",
+        jabatan: "Kepala Bidang Kesekretariatan",
         foto: "/avatar-blue.png"
     },
     {
@@ -90,9 +94,9 @@ function dpp() {
 
         const namaUrl = nama.toLowerCase().replace(/\s+/g, '-');
       return(
-        <Link href={`/dpp/${namaUrl}`} >
-        <div  className=' p-4 text-blue-500 flex flex-col gap-4 rounded-xl w-[250px] '>
-          <Image width={200} height={200} src={foto} alt="" />
+        <Link href={`/dpp/${namaUrl}`} className=''>
+        <div  className=' p-4 text-blue-500 justify-center items-center w-[200px] flex flex-col gap-4 rounded-xl '>
+          <Image width={100} height={100} src={foto} alt="" />
           <div className=''>
             <h1 >{formattedNama}</h1>
             <h1 className='text-black'>{jabatan}</h1>
@@ -104,16 +108,58 @@ function dpp() {
     return (
       <NoNavbar>
         
-        <div className=''>
-        <div className='flex flex-col justify-center items-center'>
+        <div className='w-full'>
+        <div className='flex flex-col w-full justify-center items-center'>
             <h1 className='font-bold text-center text-xl'>Struktur Organisasi Dewan Pengurus Pusat</h1>
         <Image className='my-10' alt='' width={800} height={400} src={'/OrgChart.png'}></Image>
         </div>
         <h1 className='font-bold text-center text-xl'>Daftar Dewan Pengurus Pusat</h1>
-        <div className='flex flex-wrap w-full gap-10 justify-center py-10'>
-        {pengurus.map((item, index) => (
-          <Card {...item} key={index}></Card>
-        ))}
+        <div className='flex flex-col w-full gap-10 justify-center items-center py-10 '>
+        <Card nama={pengurus[0].nama} jabatan={pengurus[0].jabatan} foto={pengurus[0].foto}></Card>
+        <div className='flex gap-10'>
+        <Card nama={pengurus[2].nama} jabatan={pengurus[2].jabatan} foto={pengurus[2].foto}></Card>
+        <Card nama={pengurus[1].nama} jabatan={pengurus[1].jabatan} foto={pengurus[1].foto}></Card>
+        </div>
+        <div className='self-start'>
+        <Card nama={pengurus[3].nama} jabatan={pengurus[3].jabatan} foto={pengurus[3].foto}></Card></div>
+        </div>
+        <div className='flex w-[900px]'>
+        <Swiper
+            pagination={{ clickable: true }}  // Enable clickable pagination
+
+          modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade]}
+          spaceBetween={4}
+          slidesPerView={3}
+          autoplay={{
+            delay: 8000,
+          }}
+          effect='fade'
+          fadeEffect={{ crossFade: true }}
+          onSlideChange={(swiper) => isNaN(swiper.realIndex) && swiper.slideTo(0)}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+        <SwiperSlide>
+         <Card nama={pengurus[1].nama} jabatan={pengurus[1].jabatan} foto={pengurus[1].foto}></Card>
+        
+        </SwiperSlide>
+        <SwiperSlide>
+        <Card nama={pengurus[1].nama} jabatan={pengurus[1].jabatan} foto={pengurus[1].foto}></Card>
+      </SwiperSlide>
+      <SwiperSlide>
+        <Card nama={pengurus[1].nama} jabatan={pengurus[1].jabatan} foto={pengurus[1].foto}></Card></SwiperSlide>
+        <SwiperSlide>
+        <Card nama={pengurus[1].nama} jabatan={pengurus[1].jabatan} foto={pengurus[1].foto}></Card>
+      </SwiperSlide>
+      <SwiperSlide>
+        <Card nama={pengurus[1].nama} jabatan={pengurus[1].jabatan} foto={pengurus[1].foto}></Card></SwiperSlide>
+        <SwiperSlide>
+        <Card nama={pengurus[1].nama} jabatan={pengurus[1].jabatan} foto={pengurus[1].foto}></Card>
+      </SwiperSlide>
+      <SwiperSlide>
+        <Card nama={pengurus[1].nama} jabatan={pengurus[1].jabatan} foto={pengurus[1].foto}></Card></SwiperSlide>
+        <div className="swiper-pagination"></div>
+        </Swiper>
+
         </div>
         </div>
       </NoNavbar>
