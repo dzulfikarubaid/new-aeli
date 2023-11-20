@@ -26,7 +26,7 @@ const New = () => {
       </div>
       <div className='relative '>
         <motion.img className='w-full' style={{ y: backgroundY }} src="/mountainbg2.png" alt="" />
-        <motion.img style={{ x: backgroundX, y: backgroundY }} className='absolute z-20  -bottom-10 transform  -left-72 w-[1000px] ' src="/men23.png" alt="" />
+        <motion.img style={{ x: backgroundX, y: backgroundY }} className='absolute z-20 -bottom-1 transform  -left-72 w-[1000px] ' src="/men23.png" alt="" />
   
         <motion.img style={{ y: backgroundY, x: backgroundX2 }} className='absolute -right-72 bottom-[-2px] w-[1000px]' src="/mountainpur.png" alt="" />
 
