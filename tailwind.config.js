@@ -10,7 +10,8 @@ module.exports = {
     extend: {
               colors:{
         'dongker': '#0d0624',
-        'teks':'#e7e7ea'
+        'teks':'#e7e7ea',
+        'subteks':'#a9a9b7',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

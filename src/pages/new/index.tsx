@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
 import WithNavbar from './navigation'
 import { motion, useScroll, useTransform } from 'framer-motion'
-
+import Card from './card'
+import Map from '@/components/Map'
 const New = () => {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -18,12 +19,12 @@ const New = () => {
   const backgroundX4 = useTransform(scrollYProgress, [0, 1], ["0%", "25%"])
   return (
 
-    <div style={{ backgroundImage: 'url(/stars.png)',backgroundSize: 'contain', backgroundRepeat: 'repeat' }}  className=' bg-dongker overflow-x-hidden '>
+    <div className=' bg-dongker overflow-x-hidden '>
 
       <WithNavbar />
-      <div ref={ref} className='w-full flex flex-col items-center justify-center text-[#979dac] px-20 text-center h-full'>
+      <div ref={ref}  style={{ backgroundImage: 'url(/stars.png)',backgroundSize: 'contain', backgroundRepeat: 'repeat' }}  className='w-full flex flex-col items-center justify-center text-teks px-20 text-center h-full'>
         <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, ease: "anticipate", bounce:"0.5" }, }}  style={{ y: textY2, }} className='pt-20 text-[80px] font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-blue-900 via-purple-500 to-pink-300'>Experience is not necessarily Experiential</motion.h1>
-        <motion.h1 style={{ y: textY3,  }}>Build Capacity, Upgrade Skills, and Enhance Creativity</motion.h1>
+        <motion.h1 className='text-subteks' style={{ y: textY3,  }}>Build Capacity, Upgrade Skills, and Enhance Creativity</motion.h1>
       </div>
       <div className='relative '>
         <motion.img className='w-full' style={{ y: backgroundY }} src="/mountainbg2.png" alt="" />
@@ -33,7 +34,20 @@ const New = () => {
 
 
       </div>
-      <motion.p className='bg-dongker text-teks p-20'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nisl ipsum, posuere sed neque quis, luctus lobortis ante. Praesent tincidunt feugiat felis, a venenatis sapien euismod quis. Sed a leo in nisl pharetra aliquet et quis diam. Quisque rhoncus, lorem suscipit fringilla eleifend, elit dui egestas odio, eget pharetra ex orci vitae ante. Aliquam sed blandit risus, ut pellentesque ipsum. Aenean velit sapien, faucibus ac facilisis accumsan, commodo id velit. Curabitur convallis eros eros. Sed pellentesque sit amet ligula nec accumsan. Sed viverra nunc ac felis lacinia tempus. Curabitur quis blandit quam. Pellentesque suscipit nunc quis volutpat fringilla. Sed in arcu non justo faucibus fringilla. Etiam commodo lobortis tempus. Maecenas rutrum risus vel nisi finibus porttitor. Cras metus orci, volutpat in ornare id, scelerisque nec nunc. In hac habitasse platea dictumst.
+      <div className=' p-20'>
+        <h1  className='pt-20 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400'>Achievement is a reflection of dedication and hard work.</h1>
+        <p className='text-center mb-10 mt-4 text-subteks '>AELI has notched up a series of impressive achievements, underscoring its commitment to excellence and constant progress.</p>
+      <div className='flex flex-row w-full justify-around gap-6'>
+    
+      <Card judul="Pelatihan Berdaya Saing" deskripsi="AELI membuat program pelatihan bagi anggota baik perorangan maupun Lembaga"></Card>
+      <Card judul="Tim Ahli Kementrian" deskripsi="AELI menjadi Tim Ahli Kementerian Pariwisata dalam merancang SKKNI Kepemanduan Outbound"></Card>
+      <Card judul="Mitra BNSP dan LSP" deskripsi="AELI menjadi mitra BNSP dan LSP untuk melaksanakan sertifikasi Profesi Kepemanduan Outbound di Indonesia"></Card>
+
+      </div>
+     <div  className='flex flex-col bg-gradient-to-br mt-10 from-purple-950 to-transparent rounded-xl border-2 gap-4 border-white/30 text-teks p-6 '>
+     <Map></Map>
+     </div>
+      <motion.p className='bg-dongker text-teks'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nisl ipsum, posuere sed neque quis, luctus lobortis ante. Praesent tincidunt feugiat felis, a venenatis sapien euismod quis. Sed a leo in nisl pharetra aliquet et quis diam. Quisque rhoncus, lorem suscipit fringilla eleifend, elit dui egestas odio, eget pharetra ex orci vitae ante. Aliquam sed blandit risus, ut pellentesque ipsum. Aenean velit sapien, faucibus ac facilisis accumsan, commodo id velit. Curabitur convallis eros eros. Sed pellentesque sit amet ligula nec accumsan. Sed viverra nunc ac felis lacinia tempus. Curabitur quis blandit quam. Pellentesque suscipit nunc quis volutpat fringilla. Sed in arcu non justo faucibus fringilla. Etiam commodo lobortis tempus. Maecenas rutrum risus vel nisi finibus porttitor. Cras metus orci, volutpat in ornare id, scelerisque nec nunc. In hac habitasse platea dictumst.
 
         Vestibulum tincidunt turpis molestie, rutrum quam vel, lobortis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce vitae ante id mi rutrum mollis. Mauris vel erat mi. Fusce bibendum interdum ipsum, faucibus tempor mauris ultrices in. Sed vulputate laoreet condimentum. Suspendisse lorem libero, tincidunt ac ligula eu, suscipit mollis neque. Integer rhoncus odio ac varius vehicula. Etiam volutpat vulputate lacinia. Mauris pretium pretium lorem, vitae accumsan lacus molestie vitae. Nam tempus, nisl nec egestas auctor, elit diam sagittis arcu, nec tincidunt orci lorem vel elit. Nullam vulputate vulputate ex, quis volutpat velit faucibus nec.
 
@@ -118,6 +132,10 @@ const New = () => {
         Nulla dignissim pulvinar sapien, at tempus leo convallis et. Duis pulvinar auctor elementum. Aenean sit amet elementum mi. Etiam congue dui a viverra convallis. Integer commodo justo sem, sit amet porta ex malesuada eget. Morbi vulputate in lectus sit amet efficitur. Pellentesque risus ex, egestas id justo ac, molestie posuere felis. Nullam turpis turpis, porttitor ut aliquet nec, imperdiet quis augue. Sed vitae nulla non enim fermentum suscipit vitae interdum quam. Nulla laoreet magna metus, congue dignissim velit viverra quis. Ut sed elementum ex, eu elementum lorem.
 
         Fusce orci turpis, imperdiet suscipit pellentesque eget, varius vitae velit. Cras at lobortis nisl. Suspendisse a lobortis elit, nec efficitur metus. Proin id metus a tortor fringilla vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer vel maximus tortor. Cras consectetur turpis non elementum eleifend. Donec odio libero, tempus eu justo nec, tincidunt vehicula nunc. Duis maximus dui a quam lobortis, ac luctus metus sollicitudin. Duis ornare purus vitae lorem dapibus pellentesque. Proin mattis leo id turpis viverra fringilla. Suspendisse sit amet tortor vel arcu varius dictum sit amet vel metus. Mauris ultricies turpis vel quam gravida semper. Nam in enim in metus vestibulum efficitur a eget diam. Curabitur non lectus tempus, interdum ante a, laoreet lectus.</motion.p>
+
+      </div>
+      
+      
     </div>
   )
 }
