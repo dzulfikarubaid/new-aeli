@@ -19,14 +19,15 @@ const New = () => {
   return (
 
     <div style={{ backgroundImage: 'url(/stars.png)',backgroundSize: 'contain', backgroundRepeat: 'repeat' }}  className=' bg-dongker overflow-x-hidden '>
+
       <WithNavbar />
       <div ref={ref} className='w-full flex flex-col items-center justify-center text-[#979dac] px-20 text-center h-full'>
-        <motion.h1 style={{ y: textY2, }} className='pt-20 text-[80px] font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-blue-900 via-purple-500 to-pink-300'>Experience is not necessarily Experiential</motion.h1>
+        <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, ease: "anticipate", bounce:"0.5" }, }}  style={{ y: textY2, }} className='pt-20 text-[80px] font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-blue-900 via-purple-500 to-pink-300'>Experience is not necessarily Experiential</motion.h1>
         <motion.h1 style={{ y: textY3,  }}>Build Capacity, Upgrade Skills, and Enhance Creativity</motion.h1>
       </div>
       <div className='relative '>
         <motion.img className='w-full' style={{ y: backgroundY }} src="/mountainbg2.png" alt="" />
-        <motion.img style={{ x: backgroundX, y: backgroundY }} className='absolute z-20 -bottom-1 transform  -left-72 w-[1000px] ' src="/men23.png" alt="" />
+        <motion.img style={{ x: backgroundX, y: backgroundY }} className='absolute z-[1] -bottom-1 transform  -left-72 w-[1000px] ' src="/men23.png" alt="" />
   
         <motion.img style={{ y: backgroundY, x: backgroundX2 }} className='absolute -right-72 bottom-[-2px] w-[1000px]' src="/mountainpur.png" alt="" />
 

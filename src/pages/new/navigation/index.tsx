@@ -3,7 +3,7 @@ import React from 'react'
 
 const Navigation = () => {
   return (
-    <div className='flex fixed top-0 py-6 items-center px-20 flex-row w-full justify-between backdrop-blur-3xl bg-transparent text-teks '>
+    <div className='flex z-10 fixed top-0 py-6 items-center px-20 flex-row w-full justify-between backdrop-blur-3xl bg-transparent text-teks '>
     <div className='flex flex-row gap-3 justify-center items-center'>
     <img className='w-[35px]  rounded-xl p-1 border-[0.5px] border-white/20' src="/logo-aeli-putih.png" alt="" />
     <h1>AELI</h1>
