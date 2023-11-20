@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import WithNavbar from './navigation'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-const index = () => {
+const New = () => {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -121,4 +121,4 @@ const index = () => {
   )
 }
 
-export default index
+export default New
