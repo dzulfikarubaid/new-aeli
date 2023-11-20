@@ -25,6 +25,7 @@
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "firebase": "^10.1.0",
+    "framer-motion": "^10.16.5",
     "jquery": "^3.7.0",
     "leaflet": "^1.9.4",
     "next": "13.4.9",
