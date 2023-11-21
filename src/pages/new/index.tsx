@@ -1,25 +1,45 @@
 import React, { useEffect, useRef } from 'react'
 import WithNavbar from './navigation'
-import { motion, useAnimation, useInView, useScroll, useTransform } from 'framer-motion'
+import { motion, useAnimation, useDragControls, useInView, useScroll, useTransform } from 'framer-motion'
 import Card from './card'
 import Map from '@/components/Map'
 import Link from 'next/link'
-import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa6'
+import { FaAngleDown, FaAngleUp, FaFacebook, FaInstagram, FaYoutube, } from 'react-icons/fa6'
+import { MdOutlineClose, MdOutlineEmail } from 'react-icons/md'
 const New = () => {
+  const [isOpen, setIsOpen] = React.useState(false)
   const refmap = useRef(null)
+  const dragControls = useDragControls()
   const visible = useInView(refmap)
   const animation = useAnimation()
+  const refEarth = useRef(null)
+  const visibleEarth = useInView(refEarth)
+  const animationEarth = useAnimation()
+  const [message, setMessage] = React.useState('')
   useEffect(() => {
     if (visible) {
       animation.start({
         opacity: 1,
         y: 0
       })
+
     }
     else {
       animation.start({
         opacity: 1,
         y: -200
+      })
+    }
+    if (visibleEarth) {
+      animationEarth.start({
+        opacity: 1,
+        rotate: 360
+      })
+    }
+    else {
+      animationEarth.start({
+        opacity: 0,
+        rotate: 0
       })
     }
   }, [visible])
@@ -28,6 +48,7 @@ const New = () => {
     target: ref,
     offset: ["start start", "end start"]
   })
+  const [clicked, setClicked] = React.useState(false)
   const textY = useTransform(scrollYProgress, [0, 1], ["20%", "30%"])
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["20%", "0%"])
   const backgroundX = useTransform(scrollYProgress, [0, 1], ["0%", "25%"])
@@ -38,7 +59,7 @@ const New = () => {
   const backgroundX4 = useTransform(scrollYProgress, [0, 1], ["0%", "25%"])
   return (
 
-    <div className=' bg-dongker overflow-x-hidden '>
+    <div className=' bg-dongker overflow-x-hidden h-full relative'>
 
       <WithNavbar />
       <div ref={ref} style={{ backgroundImage: 'url(/stars.png)', backgroundSize: 'contain', backgroundRepeat: 'repeat' }} className='w-full flex flex-col items-center justify-center text-teks px-20 text-center h-full'>
@@ -83,25 +104,38 @@ const New = () => {
           </h1>
           <p className='text-center mb-10 mt-4 text-subteks '>AELI has proudly extended its reach to connect with individuals and communities across 15 provinces in Indonesia, emphasizing our dedication to fostering meaningful relationships and continual collaboration.</p>
           {/* <img src="/logo-aeli-putih.png" className='w-[500px] h-fit p-20 bg-gradient-to-tl from-purple-950 to-transparent border-[1px] rounded-[60px] border-white/30' alt="" /> */}
-          <div className='flex flex-row text-teks gap-4 items-center'>
-            <div className='flex'>
+          <motion.img animate={animationEarth} ref={refEarth} initial={{ opacity: 0, rotate: 0 }} transition={{ duration: 10 }} className='w-[500px] h-fit' src="/pngearth.png" alt="" />
+          <div className='flex flex-row text-teks gap-6 items-center'>
+            <div className='flex gap-2 items-center'>
               <FaInstagram size={30}></FaInstagram>
               <h1>@experiential.id</h1></div>
-            <div className='flex'>
+            <div className='flex gap-2 items-center'>
 
               <FaYoutube size={30}></FaYoutube>
-              <h1>@experiential.id</h1></div>
+              <h1>Experiential Channel</h1></div>
 
           </div>
-          <div className='w-1/2 flex flex-col gap-4 text-teks rounded-3xl p-10 border-[1px] border-white/20 mt-10 bg-gradient-to-b from-purple-950 to-transparent'>
-            <label htmlFor="name">Name</label>
-            <input className='w-full text-dongker border-[1px] border-white/20 rounded-2xl p-2 px-4' type="text" id="name" name="name" placeholder="Name" />
-            <label htmlFor="email">Email</label>
-            <input className='w-full text-dongker  border-[1px] border-white/20 rounded-2xl p-2 px-4' type="email" id="email" name="email" placeholder="Email" />
-            <label htmlFor="message">Message</label>
-            <textarea className='w-full border-[1px] border-white/20 rounded-2xl text-dongker  p-2 px-4' id="message" name="message" placeholder="Message"></textarea>
-            <button className='border-[1px] border-white/20 rounded-2xl p-2 px-10 bg-gradient-to-br from-white/20 to-transparent'>Send</button>
-          </div>
+          <button className='border-[1px] border-white/20 rounded-2xl p-2 px-10 bg-gradient-to-br from-white/20 to-transparent text-teks flex gap-2 items-center' onClick={() => setClicked(!clicked)}>
+            <MdOutlineEmail size={25} />
+            Send Email
+          </button>
+          {
+            clicked &&
+
+            <motion.div initial={{ opacity: 0, y: 0 }} transition={{ duration: 1 }} animate={{ opacity: 1, y: -400 }} className='w-1/2 flex flex-col gap-4 text-teks rounded-3xl p-10 border-[1px] border-white/20 mt-10 bg-gradient-to-b from-purple-950 to-dongker'>
+              <div className='flex flex-row-reverse'>
+                <button><MdOutlineClose size={20} onClick={() => setClicked(!clicked)} /></button>
+              </div>
+              <label htmlFor="name">Name</label>
+              <input className='w-full text-dongker border-[1px] border-white/20 rounded-2xl p-2 px-4' type="text" id="name" name="name" placeholder="Name" />
+              <label htmlFor="email">Email</label>
+              <input className='w-full text-dongker  border-[1px] border-white/20 rounded-2xl p-2 px-4' type="email" id="email" name="email" placeholder="Email" />
+              <label htmlFor="message">Message</label>
+              <textarea className='w-full border-[1px] border-white/20 rounded-2xl text-dongker  p-2 px-4' id="message" name="message" placeholder="Message"></textarea>
+              <button className='border-[1px] border-white/20 rounded-2xl p-2 px-10 bg-gradient-to-br from-white/20 to-transparent'>Send</button>
+            </motion.div>
+          }
+
 
 
         </div>
@@ -120,7 +154,22 @@ const New = () => {
           <Link href={'/blog'}>Blog</Link>
         </div>
 
-
+        {
+          isOpen ?
+            <motion.div initial={{ opacity: 0, y: 0 }} transition={{ duration: 1 }} animate={{ opacity: 1, y: -50 }} className='w-1/2 flex flex-col gap-4 text-teks rounded-3xl p-10 border-[1px] border-white/20 mt-10 bg-gradient-to-b from-purple-950 to-dongker fixed right-10 bottom-0'>
+              <div className='flex flex-row-reverse'>
+                <button><MdOutlineClose size={20} onClick={() => setIsOpen(!isOpen)} /></button>
+              </div>
+        
+              <label htmlFor="message">Message</label>
+              <textarea onChange={(e) => setMessage(e.target.value)} value={message} className='w-full border-[1px] border-white/20 rounded-2xl text-dongker  p-2 px-4' id="message" name="message" placeholder="Message"></textarea>
+              <Link href={`https://wa.me/6285156831740?text=${message}`} target='_blank' className='border-[1px] border-white/20 rounded-2xl p-2 px-10 bg-gradient-to-br from-white/20 to-transparent text-center'>Send</Link>
+            </motion.div>
+            :
+            <motion.button initial={{ opacity: 0}} transition={{ duration: 1 }} animate={{ opacity: 1, y: 0 }} onClick={() => setIsOpen(!isOpen)} className='fixed bottom-10 right-10'>
+              <img className='w-[80px]' src="/chat.png" alt="" />
+            </motion.button>
+        }
       </div>
 
 
